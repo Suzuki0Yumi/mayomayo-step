@@ -8,6 +8,9 @@ README
 
 また、実行したかどうかを記録することで、行動の継続をサポートし、過去の記録を振り返ることで成長を実感できます。
 
+## 画面遷移図
+https://www.figma.com/design/ZeyVfkGMIdkjut3SdFHb3g/%E7%84%A1%E9%A1%8C?node-id=0-1&t=XxySUYnELzMTie0Q-1
+
 ---
 
 ## 2. このアイデアはどこから生まれたか
