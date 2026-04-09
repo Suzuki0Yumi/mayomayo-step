@@ -11,7 +11,10 @@ Things you may want to cover:
 
 * Configuration
 
-* Database creation
+## ER図
+https://gyazo.com/10258e55cd1b919a008f246dde0feeda
+
+---
 
 * Database initialization
 
