@@ -11,6 +11,9 @@ README
 ## 画面遷移図
 https://www.figma.com/design/ZeyVfkGMIdkjut3SdFHb3g/%E7%84%A1%E9%A1%8C?node-id=0-1&t=XxySUYnELzMTie0Q-1
 
+## ER図
+https://gyazo.com/10258e55cd1b919a008f246dde0feeda
+
 ---
 
 ## 2. このアイデアはどこから生まれたか
