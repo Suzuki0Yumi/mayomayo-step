@@ -82,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: mayomayo_step_production
-  username: postgres
-  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
