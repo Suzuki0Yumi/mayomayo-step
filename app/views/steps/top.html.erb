@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="header">
+      まよまよステップ
+    </div>
+
+    <div class="mascot-area">
+      <div class="mascot">
+        <%= image_tag "mayomayo.png", class: "mascot-img" %>
+      </div>
+      <div class="mascot-bubble">
+        <p class="bubble-title">
+          やりたい気持ちはあるのに、なかなか動けないときに
+        </p>
+        <p class="bubble-text">
+         「今日これならできそう」と思える一歩を、まよまよが提案します。<br>
+          小さなことでも大丈夫。一緒に考えよう🌱
+        </p>
+       </div>
+    </div>
+  
+  <%= form_with url: steps_path, method: :post, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :goal, class: 'form-label' do %>
+         🌱気になっていること
+          <span class="required-badge">(必須)</span>
+      <% end %>
+
+      <%= f.text_area :goal, 
+          class: 'form-control',
+          rows: 4, 
+          placeholder: '例：英語やり直したい気がしてる、運動したほうがいいかなと思ってる、新しいことに少し興味ある', 
+          required: true,
+          'aria-required': 'true' %>
+    </div>
+
+     <div class="form-group">
+        <%= f.label :feeling, class: 'form-label' do %>
+          💭今の気持ち
+          <span class="required-badge">(必須)</span>
+        <% end %>
+        <%= f.hidden_field :feeling, id: "feeling-field" %>
+      
+      <div class="status-buttons">
+        <button type="button" class="status-btn" data-value="light_interest">
+          ちょっと変わりたい
+        </button>
+
+        <button type="button" class="status-btn" data-value="strong_interest">
+          気になっているだけ
+        </button>
+
+        <button type="button" class="status-btn" data-value="blocked_action">
+          動きたいけど重い
+        </button>
+
+        <button type="button" class="status-btn" data-value="unclear_state">
+          なんとなくモヤモヤ
+        </button>
+      </div>
+    </div>
+    
+    <div class="form-group">
+       <%= f.label :time_available, class: 'form-label' do %>
+         ⌛今から使える時間
+         <span class="required-badge">(必須)</span>
+       <% end %>
+       <%= f.hidden_field :time_available, id: "time-available-field" %>
+      
+      <div class="status-buttons">
+        <button type="button" class="status-btn" data-value="5min">
+          5分
+        </button>
+
+        <button type="button" class="status-btn" data-value="30min">
+          30分
+        </button>
+
+        <button type="button" class="status-btn" data-value="60min_plus">
+          1時間～
+        </button>
+      </div>
+    </div>
+
+     <div class="form-group">
+       <%= f.label :blocker, class: 'form-label' do %>
+          🚧 もしあれば：何がちょっと邪魔してる？
+       <% end %>
+       <%= f.hidden_field :blocker, id: "blocker-field" %>
+      
+      <div class="status-buttons">
+        <button type="button" class="status-btn" data-value="tired">
+          疲れてる
+        </button>
+
+        <button type="button" class="status-btn" data-value="unclear_how">
+          やり方がわからない
+        </button>
+
+        <button type="button" class="status-btn" data-value="lazy_friction">
+          めんどくさい
+        </button>
+
+        <button type="button" class="status-btn" data-value="low_energy">
+          なんとなくやる気出ない
+        </button>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'まよまよに相談する', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
