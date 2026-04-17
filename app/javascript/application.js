@@ -27,7 +27,7 @@ const initStepForm = () => {
   });
 
   // フォーム送信時の処理
-  const form = document.querySelector('form');
+  const form = document.querySelector('.main-form');
   if (!form) return;
 
   // エラー表示用の関数

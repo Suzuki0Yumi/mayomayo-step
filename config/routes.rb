@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root 'steps#top'
-  post 'steps', to: 'steps#create'
+  root 'steps#new'
+  post 'steps/generate', to: 'steps#generate', as: 'generate_step'
+  get 'steps/result', to: 'steps#result'
 end

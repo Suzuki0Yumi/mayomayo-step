@@ -32,14 +32,26 @@ body {
   font-size: 14px;
   color: #666;
 }
-form {
+.main-form {
   max-width: 600px;
   margin: 0 auto;
   background-color: #ffffff;
   padding: 28px;
+  border-radius: 20px;
+  border: 1.5px solid #f3d5b5;
+  box-shadow: 0 4px 16px rgba(231, 111, 81, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.form-group:first-of-type textarea.form-control {
+  color: #5a3e2b;
+  background-color: #fffef5;
+  border: 2px dashed #f4a261;
   border-radius: 16px;
-  border: 1px solid #e8d8c3;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 3px 3px 0px #f3d5b5;
+  line-height: 1.6;
+  padding: 14px;
+
+  background-image: none;
 }
 
 .form-control, textarea {
@@ -59,7 +71,11 @@ form {
 }
 
 .form-group { margin-bottom: 32px; }
-.form-actions { margin-top: 40px; }
+
+.form-actions {
+  margin-top: 40px;
+  text-align: center; 
+  }
 
 label {
   display: block;
@@ -79,13 +95,14 @@ label {
   min-width: 120px;
   padding: 12px 10px;
   border-radius: 999px;
-  border: 1px solid #e5e5e5;
-  background: #fff;
+  border: 1.5px solid #e8d8c3;
+  background: #fffaf7;
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s;
   color: #444;
   gap: 10px;
+  font-weight: 500;
 }
 
 
@@ -93,6 +110,7 @@ label {
   transform: translateY(-1px);
   background: #fff7f0;
   border-color: #f4a261;
+  color: #c1440e;
 }
 
 .status-btn.active {
@@ -105,12 +123,12 @@ label {
 .btn {
   background: linear-gradient(135deg, #f4a261, #e76f51);
   color: white;
-  padding: 14px 20px;
+  padding: 12px 18px;
   border: none;
   border-radius: 999px;
   cursor: pointer;
   font-size: 15px;
-  width: 100%;
+  width: auto;
   transition: 0.2s;
 }
 
@@ -122,10 +140,10 @@ label {
 .header {
   background: #e76f51;
   color: white;
-  padding: 30px 16px;
+  padding: 20px 16px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 0;
   border-radius: 0;
 
 }
@@ -135,7 +153,7 @@ label {
   align-items: center;
   gap: 16px;
   max-width: 600px;
-  margin: 0 auto 24px;
+  margin: 0 auto 16px;
 }
 
 .mascot-bubble {
@@ -168,6 +186,60 @@ label {
 }
 
 .mascot-img {
-  width: 110px;
+  width: 120px;
   height: auto;
+}
+
+
+/*result画面*/
+
+.result-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(231, 111, 81, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1.5px solid #f3d5b5;
+  border-radius: 20px;
+}
+
+.proposal-content {
+  background: #fff7f0;
+  border-left: 4px solid #f4a261;
+  padding: 20px;
+  margin-bottom: 24px;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* result内のformだけリセット */
+.action-buttons form {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #e76f51;
+  border: 1px solid #e76f51;
+}
+
+.result-header {
+  text-align: center;
+}
+
+.result-header h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
 }
