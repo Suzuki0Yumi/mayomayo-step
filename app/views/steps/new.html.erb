@@ -3,6 +3,14 @@
       まよまよステップ
     </div>
 
+    <svg style="display:block; width:100%; height:28px; margin-top:-1px;"
+       viewBox="0 0 480 28" preserveAspectRatio="none"
+       xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C40,0 40,24 80,24 C120,24 120,4 160,4 C200,4 200,24 240,24
+           C280,24 280,4 320,4 C360,4 360,24 400,24 C440,24 440,4 480,4 L480,0 Z"
+        fill="#e76f51"/>
+    </svg>
+
     <div class="mascot-area">
       <div class="mascot">
         <%= image_tag "mayomayo.png", class: "mascot-img" %>
@@ -18,7 +26,7 @@
        </div>
     </div>
   
-  <%= form_with url: steps_path, method: :post, local: true do |f| %>
+  <%= form_with url: generate_step_path, method: :post, scope: :step, local: true, class: "main-form" do |f| %>
     <div class="form-group">
       <%= f.label :goal, class: 'form-label' do %>
          🌱気になっていること
