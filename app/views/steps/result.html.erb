@@ -33,10 +33,10 @@
 
     <div class="action-buttons">
       <%= form_with url: generate_step_path, method: :post do %>
-        <%= hidden_field_tag :goal, @goal %>
-        <%= hidden_field_tag :feeling, @feeling %>
-        <%= hidden_field_tag :time_available, @time_available %>
-        <%= hidden_field_tag :blocker, @blocker %>
+        <%= hidden_field_tag "step[goal]", @goal %>
+        <%= hidden_field_tag "step[feeling]", @feeling %>
+        <%= hidden_field_tag "step[time_available]", @time_available %>
+        <%= hidden_field_tag "step[blocker]", @blocker %>
 
         <%= submit_tag "もう一度提案する", class: "btn btn-primary" %>
      <% end %>

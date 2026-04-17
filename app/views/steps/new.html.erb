@@ -48,7 +48,7 @@
         <% end %>
         <%= f.hidden_field :feeling, id: "feeling-field" %>
       
-      <div class="status-buttons">
+      <div class="status-buttons" data-target="feeling-field">
         <button type="button" class="status-btn" data-value="light_interest">
           ちょっと変わりたい
         </button>
@@ -74,7 +74,7 @@
        <% end %>
        <%= f.hidden_field :time_available, id: "time-available-field" %>
       
-      <div class="status-buttons">
+      <div class="status-buttons" data-target="time-available-field">
         <button type="button" class="status-btn" data-value="5min">
           5分
         </button>
@@ -95,7 +95,7 @@
        <% end %>
        <%= f.hidden_field :blocker, id: "blocker-field" %>
       
-      <div class="status-buttons">
+      <div class="status-buttons" data-target="blocker-field">
         <button type="button" class="status-btn" data-value="tired">
           疲れてる
         </button>
