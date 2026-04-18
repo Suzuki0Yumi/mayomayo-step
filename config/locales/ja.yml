@@ -1,0 +1,9 @@
+ja:
+  activemodel:
+    attributes:
+      step:
+        goal: '気になっていること'
+        feeling: '今の気持ち'
+        time_available: '今から使える時間'
+        blocker: '動けない理由'
+   

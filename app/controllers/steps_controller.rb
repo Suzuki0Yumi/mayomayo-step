@@ -2,22 +2,24 @@ class StepsController < ApplicationController
   include StepsHelper
   
   def new
+    @step = Step.new
   end
 
   def generate
-    @goal = params[:step][:goal]
-    @feeling = params[:step][:feeling]
-    @time_available = params[:step][:time_available]
-    @blocker = params[:step][:blocker]
+    @step = Step.new(step_params)
 
-    Rails.logger.debug "Goal: #{@goal}"
-    Rails.logger.debug "Feeling: #{@feeling}"
-    Rails.logger.debug "Time Available: #{@time_available}"
-    Rails.logger.debug "Blocker: #{@blocker}"
+   if @step.valid?
+    @goal = @step.goal
+    @feeling = @step.feeling
+    @time_available = @step.time_available
+    @blocker = @step.blocker
 
     # AI統合前は固定の提案文を生成
     @proposal = build_mock_proposal
     render  :result
+   else
+    render :new, status: :unprocessable_entity
+   end
   end
 
 # 開発用: 結果画面を直接確認するアクション
@@ -31,6 +33,10 @@ class StepsController < ApplicationController
   end
 
   private
+
+  def step_params
+    params.require(:step).permit(:goal, :feeling, :time_available, :blocker)
+  end
 
   def build_mock_proposal
     <<~TEXT

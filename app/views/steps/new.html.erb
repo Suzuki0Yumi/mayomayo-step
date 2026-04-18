@@ -20,14 +20,26 @@
           やりたい気持ちはあるのに、なかなか動けないときに
         </p>
         <p class="bubble-text">
-         「今日これならできそう」と思える一歩を、まよまよが提案します。<br>
-          小さなことでも大丈夫。一緒に考えよう🌱
+         「今日これならできそう」と思える一歩を<br>まよまよが提案します。<br>
+           小さなことでも大丈夫。一緒に考えよう🌱
         </p>
        </div>
     </div>
   
   <%= form_with url: generate_step_path, method: :post, scope: :step, local: true, class: "main-form" do |f| %>
-    <div class="form-group">
+    
+    <% if @step.errors.any? %>
+      <div class='alert alert-danger'>
+        <ul>
+          <% @step.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    
+    <div class="form-group goal-group">
       <%= f.label :goal, class: 'form-label' do %>
          🌱気になっていること
           <span class="required-badge">(必須)</span>
@@ -37,7 +49,6 @@
           class: 'form-control',
           rows: 4, 
           placeholder: '例：英語やり直したい気がしてる、運動したほうがいいかなと思ってる、新しいことに少し興味ある', 
-          required: true,
           'aria-required': 'true' %>
     </div>
 
@@ -49,21 +60,13 @@
         <%= f.hidden_field :feeling, id: "feeling-field" %>
       
       <div class="status-buttons" data-target="feeling-field">
-        <button type="button" class="status-btn" data-value="light_interest">
-          ちょっと変わりたい
-        </button>
-
-        <button type="button" class="status-btn" data-value="strong_interest">
-          気になっているだけ
-        </button>
-
-        <button type="button" class="status-btn" data-value="blocked_action">
-          動きたいけど重い
-        </button>
-
-        <button type="button" class="status-btn" data-value="unclear_state">
-          なんとなくモヤモヤ
-        </button>
+        <% Step::FEELINGS.each do |key, label| %>
+          <button type="button" 
+            class="status-btn <%= 'active' if @step.feeling == key %>"
+            data-value="<%= key %>">
+            <%= label %>
+          </button>
+        <% end %>
       </div>
     </div>
     
@@ -75,17 +78,13 @@
        <%= f.hidden_field :time_available, id: "time-available-field" %>
       
       <div class="status-buttons" data-target="time-available-field">
-        <button type="button" class="status-btn" data-value="5min">
-          5分
-        </button>
-
-        <button type="button" class="status-btn" data-value="30min">
-          30分
-        </button>
-
-        <button type="button" class="status-btn" data-value="60min_plus">
-          1時間～
-        </button>
+        <% Step::TIME_AVAILABLE_OPTIONS.each do |key, label| %>
+          <button type="button"
+            class="status-btn <%= 'active' if @step.time_available == key %>"
+            data-value="<%= key %>">
+            <%= label %>
+          </button>
+        <% end %>
       </div>
     </div>
 
@@ -96,21 +95,13 @@
        <%= f.hidden_field :blocker, id: "blocker-field" %>
       
       <div class="status-buttons" data-target="blocker-field">
-        <button type="button" class="status-btn" data-value="tired">
-          疲れてる
-        </button>
-
-        <button type="button" class="status-btn" data-value="unclear_how">
-          やり方がわからない
-        </button>
-
-        <button type="button" class="status-btn" data-value="lazy_friction">
-          めんどくさい
-        </button>
-
-        <button type="button" class="status-btn" data-value="low_energy">
-          なんとなくやる気出ない
-        </button>
+       <% Step::BLOCKERS.each do |key, label| %>
+          <button type="button"
+            class="status-btn <%= 'active' if @step.blocker == key %>"
+            data-value="<%= key %>">
+            <%= label %>
+          </button>
+        <% end %> 
       </div>
     </div>
 
