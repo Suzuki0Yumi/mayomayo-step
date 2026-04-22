@@ -15,15 +15,23 @@
       <div class="mascot">
         <%= image_tag "mayomayo.png", class: "mascot-img" %>
       </div>
+
       <div class="mascot-bubble">
         <p class="bubble-title">
-          やりたい気持ちはあるのに、なかなか動けないときに
+          まよまよステップへようこそ！
         </p>
-        <p class="bubble-text">
-         「今日これならできそう」と思える一歩を<br>まよまよが提案します。<br>
-           小さなことでも大丈夫。一緒に考えよう🌱
-        </p>
-       </div>
+          <p class="bubble-text">
+            やりたいことはあるのに、なかなか動き出せない...<br>
+            そんなときに、今日の一歩を提案するサービスです🌱
+          </p>
+      
+         <p class="examples-intro">例えば、こんな気になっていることを教えてね：</p>
+           <ul class="examples-simple-list">
+               <li>料理がうまくなりたい</li>
+               <li>栄養について勉強したい</li>
+               <li>刺繍を始めてみたい</li>
+            </ul>
+      </div>
     </div>
   
   <%= form_with url: generate_step_path, method: :post, scope: :step, local: true, class: "main-form" do |f| %>
@@ -48,7 +56,7 @@
       <%= f.text_area :goal, 
           class: 'form-control',
           rows: 4, 
-          placeholder: '例：英語やり直したい気がしてる、運動したほうがいいかなと思ってる、新しいことに少し興味ある', 
+          placeholder: 'ここに書いてね', 
           'aria-required': 'true' %>
     </div>
 

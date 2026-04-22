@@ -12,12 +12,12 @@ class Step
   validates :feeling, presence: { message: 'を選択してください' },
                       inclusion: { in: %w[light_interest strong_interest blocked_action unclear_state], message: '正しい気持ちを選択してください',  allow_blank: true}
   validates :time_available, presence: { message: 'を選択してください' },
-                             inclusion: { in: %w[5min 30min 60min_plus], allow_blank: true}               
+                             inclusion: { in: %w[5min 30min 60min_plus], allow_blank: true, message: '正しい時間を選択してください'}               
   validates :blocker, inclusion: { in: %w[tired unclear_how lazy_friction low_energy], allow_blank: true, message: '正しい項目を選択してください' }
 
   FEELINGS = {
-    'light_interest' => 'ちょっと変わりたい',
-    'strong_interest' => '気になっているだけ',
+    'light_interest' => '気になっているだけ',
+    'strong_interest' => 'ちょっと変わりたい',
     'blocked_action' => '動きたいけど重い',
     'unclear_state' => 'なんとなくモヤモヤ'
   }.freeze
