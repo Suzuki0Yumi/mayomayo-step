@@ -256,3 +256,35 @@ label {
   padding-left: 0;
   list-style: none;
 }
+
+/* まよまよの吹き出し内の例 */
+.examples-intro {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding-top: 16px;
+  border-top: 1px dashed #f3d5b5;
+}
+
+.examples-simple-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #777;
+}
+
+.examples-simple-list li {
+  padding: 4px 0;
+  position: relative;
+  padding-left: 16px;
+}
+
+.examples-simple-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: #f4
+}
