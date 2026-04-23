@@ -6,7 +6,7 @@ module StepsHelper
     when 'blocked_action'
       '大丈夫、一歩見つけたよ！'
     when 'light_interest'
-      '小さな一歩が一番だいじだよ'
+      '小さな一歩が一番だいじだよ～'
     when 'unclear_state'
       'モヤモヤするよね、ここから始めてみよう'
     else
