@@ -8,17 +8,16 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
 
     if @step.valid?
-      is_retry = params[:is_retry]
-      previous = params[:previous_proposal]
+      is_retry = retry_params[:is_retry]
+      previous = retry_params[:previous_proposal]
 
       ai = AiGenerator.new
       @proposal = ai.generate(
         goal: @step.goal,
         feeling: @step.feeling,
         time_available: @step.time_available,
-        blocker: @step.blocker,
-        is_retry: params[is_retry],
-        previous_proposal: params[previous]
+        is_retry: is_retry,
+        previous_proposal: previous
       )
       @proposal ||= build_mock_proposal
       render  :result
@@ -30,7 +29,7 @@ class StepsController < ApplicationController
   private
 
   def step_params
-    params.require(:step).permit(:goal, :feeling, :time_available, :blocker)
+    params.require(:step).permit(:goal, :feeling, :time_available)
   end
 
   def retry_params
