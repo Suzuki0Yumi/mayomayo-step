@@ -22,16 +22,51 @@ body {
   border-color: #ffffff transparent transparent transparent;
 }
 
+.bubble-content-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.bubble-main {
+  flex: 3;
+  min-width: 0;
+  padding-left: 12px;
+}
+
+.bubble-examples {
+  flex: 0 0 220px;
+  padding: 12px 14px;
+  background: transparent;
+  border-radius: 12px;
+  border: 1px dashed #f3d5b5;
+  margin-top: 32px;
+}
+
 .bubble-title {
-  font-weight: bold;
   font-size: 16px;
-  margin-bottom: 4px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e76f51, #f4a261);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
 }
 
 .bubble-text {
   font-size: 14px;
-  color: #666;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 8px;
 }
+.how-to-use {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 12px;
+}
+
 .main-form {
   max-width: 600px;
   margin: 0 auto;
@@ -84,14 +119,22 @@ label {
 }
 
 .status-buttons {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 8px;
 }
 
+/* 「今どんな感じ?」用 */
+.status-buttons[data-target="feeling-field"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 「一歩の大きさ」用  */
+.status-buttons[data-target="time-available-field"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .status-btn {
-  flex: 1 1 calc(50% - 8px);
-  min-width: 120px;
   padding: 12px 10px;
   border-radius: 999px;
   border: 1.5px solid #e8d8c3;
@@ -100,10 +143,25 @@ label {
   font-size: 12px;
   transition: all 0.2s;
   color: #444;
-  gap: 10px;
   font-weight: 500;
 }
 
+.status-btn:focus {
+  outline: 2px solid #f4a261;
+  outline-offset: 2px;
+}
+
+.status-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status-btn:disabled:hover {
+  transform: none;
+  background: #fffaf7;
+  border-color: #e8d8c3;
+  color: #444;
+}
 
 .status-btn:hover {
   transform: translateY(-1px);
@@ -119,6 +177,17 @@ label {
   box-shadow: 0 4px 10px rgba(244, 162, 97, 0.25);
 }
 
+.status-btn:focus-visible {
+  outline: 3px solid #f4a261;
+  outline-offset: 3px;
+}
+
+/* マウスクリック時は表示しない */
+.status-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
 .btn {
   background: linear-gradient(135deg, #f4a261, #e76f51);
   color: white;
@@ -129,11 +198,28 @@ label {
   font-size: 15px;
   width: auto;
   transition: 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(231, 111, 81, 0.25);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #e76f51;
+  border: 2px solid #e76f51;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: #fff7f0;
+  color: #e76f51;
+  text-decoration: none;
 }
 
 .header {
@@ -144,25 +230,44 @@ label {
   text-align: center;
   margin-bottom: 0;
   border-radius: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.logo-img {
+  height: 200px; 
+  width: auto;
+  display: inline-block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+  padding-top:15px;
+}
+
+.logo-img:hover {
+  transform: scale(1.03);
 }
 
 .mascot-area {
   display: flex;
   align-items: center;
   gap: 16px;
-  max-width: 600px;
-  margin: 0 auto 16px;
+  max-width: 700px;
+  margin: 0 auto 24px;
+  padding: 0 16px;
 }
 
 .mascot-bubble {
   flex: 1;
   background: #fffaf7;
-  border: 1.5px solid #f3d5b5;
+  border: 2px solid #f3d5b5;
   border-radius: 18px;
-  padding: 16px 20px;
+  padding: 24px 16px;
   position: relative;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 600px;
 }
 
 .mascot-bubble::before {
@@ -174,21 +279,11 @@ label {
   border: 10px solid transparent;
   border-right-color: #f3d5b5;
 }
-.mascot-bubble::after {
-  content: '';
-  position: absolute;
-  left: -7px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 9px solid transparent;
-  border-right-color: #fffaf7;
-}
 
 .mascot-img {
   width: 120px;
   height: auto;
 }
-
 
 /*result画面*/
 
@@ -262,10 +357,14 @@ label {
   font-size: 13px;
   font-weight: 600;
   color: #666;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  padding-top: 16px;
-  border-top: 1px dashed #f3d5b5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.examples-intro::before {
+  content: "💡";
+  font-size: 14px;
 }
 
 .examples-simple-list {
@@ -286,5 +385,67 @@ label {
   content: "・";
   position: absolute;
   left: 0;
-  color: #f4
+  color: #f4a261;
+}
+
+/* 必須・任意バッジ */
+.required-badge,
+.optional-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.required-badge {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  box-shadow: 0 2px 4px rgba(255, 107, 107, 0.2);
+}
+
+.optional-badge {
+  background: #e8f4f8;
+  color: #5a9fb8;
+  border: 1px solid #b8d9e8;
+}
+
+/* スマホサイズでは1列に */
+@media (max-width: 480px) {
+  .status-btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bubble-content-wrapper {
+    flex-direction: column;
+  }
+  
+  .bubble-examples {
+    flex: 1;
+    width: 100%;
+    margin-top: 16px;
+  }
+}
+@media (max-width: 640px) {
+  .mascot-area {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .mascot-bubble::before,
+  .mascot-bubble::after {
+    display: none; /* 縦並びでは三角不要 */
+  }
+}
+
+/* スマホサイズでは全て1列に */
+@media (max-width: 480px) {
+  .status-buttons[data-target="feeling-field"],
+  .status-buttons[data-target="time-available-field"] {
+    grid-template-columns: 1fr;
+  }
 }

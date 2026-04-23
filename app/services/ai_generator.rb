@@ -3,12 +3,11 @@ class AiGenerator
      @client = OpenAI::Client.new
   end
 
-  def generate(goal:, feeling:, time_available:, blocker:, is_retry: false, previous_proposal: nil)
+  def generate(goal:, feeling:, time_available:, is_retry: false, previous_proposal: nil)
      prompt = build_prompt(
        goal: goal, 
        feeling: feeling, 
        time_available: time_available, 
-       blocker: blocker,
        is_retry: is_retry,
        previous_proposal: previous_proposal 
      )
@@ -17,10 +16,10 @@ class AiGenerator
       
   private
 
-  def build_prompt(goal:, feeling:, time_available:, blocker:, is_retry:, previous_proposal:)
+  def build_prompt(goal:, feeling:, time_available:, is_retry:, previous_proposal:)
     feeling_text = Step::FEELINGS[feeling]
+    time_available = '30min' if time_available.blank?
     time_text = Step::TIME_AVAILABLE_OPTIONS[time_available]
-    blocker_text = Step::BLOCKERS[blocker]
 
     feeling_guidance = case feeling
                    when 'blocked_action'
@@ -37,23 +36,10 @@ class AiGenerator
                     when '5min' 
                       '超簡単な準備や情報収集（アプリをインストール、1つの記事をブックマーク）'
                     when '30min'
-                      '実際に手を動かす行動（動画を見る、簡単な練習をする）'
+                      '実際に手を動かす行動（やってみる、簡単な練習をする）'
                     when '60min_plus'
                       'じっくり取り組む行動（実際に作ってみる、複数の情報を比較する）'
                     end
-
-    blocker_guidance = case blocker
-                       when 'tired'
-                          '疲れている人向けに、頭を使わない簡単な行動を提案してください'
-                       when 'unclear_how'
-                          '何から始めればいいか分からない人向けに、最初の一歩を明確に示してください'
-                       when 'lazy_friction'
-                          'めんどくさがりな人向けに、超簡単でハードルの低い行動を提案してください'
-                       when 'low_energy'
-                          'やる気が出ない人向けに、楽しそうな行動を提案してください'
-                       else
-                          ''
-                       end
 
     previous_text = if is_retry && previous_proposal.present?
                      "前回の提案: #{previous_proposal}"
@@ -74,8 +60,6 @@ class AiGenerator
       #{feeling_guidance}
       - 使える時間: #{time_text}
       - 行動レベル: #{action_depth}
-      - 邪魔しているもの: #{blocker.present? ? blocker_text : "特になし"}
-                         #{blocker_guidance}
        #{is_retry_instruction}
        #{previous_text}
       
