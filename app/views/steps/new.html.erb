@@ -38,7 +38,7 @@
            <ul class="examples-simple-list">
                <li>料理がうまくなりたい</li>
                <li>栄養について勉強したい</li>
-               <li>中国語を話してみたい</li>
+               <li>音楽を作ってみたい</li>
             </ul>
         </div>
       </div>
@@ -56,7 +56,6 @@
         </ul>
       </div>
     <% end %>
-    
     
     <div class="form-group goal-group">
       <%= f.label :goal, class: 'form-label' do %>
@@ -109,6 +108,18 @@
 
     <div class="form-actions">
       <%= f.submit 'まよまよに相談する', class: 'btn btn-primary' %>
+    </div>
+
+    <div id="loading-indicator" class="loading-indicator hidden">
+      <div class="mayomayo-thinking">
+        <%= image_tag "mayo-loading.png", class: "mayomayo-loading-img" %>
+          <div class="thinking-animation">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+      </div>
+        <p class="loading-text">考え中...</p>
     </div>
   <% end %>
 </div>
