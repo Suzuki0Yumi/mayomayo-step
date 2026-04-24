@@ -14,12 +14,11 @@ class StepsController < ApplicationController
       ai = AiGenerator.new
       @proposal = ai.generate(
         goal: @step.goal,
-        feeling: @step.feeling,
-        time_available: @step.time_available,
+        feeling: Step::FEELINGS[@step.feeling],
+        time_available: Step::TIME_AVAILABLE_OPTIONS[@step.time_available],
         is_retry: is_retry,
         previous_proposal: previous
       )
-      @proposal ||= build_mock_proposal
       render  :result
     else
       render :new, status: :unprocessable_entity

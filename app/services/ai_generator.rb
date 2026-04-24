@@ -11,15 +11,16 @@ class AiGenerator
        is_retry: is_retry,
        previous_proposal: previous_proposal 
      )
-     call_api(prompt)
+     result = call_api(prompt)
+     result || fallback_proposal(goal: goal)
   end
       
   private
 
   def build_prompt(goal:, feeling:, time_available:, is_retry:, previous_proposal:)
-    feeling_text = Step::FEELINGS[feeling]
+    feeling_text = feeling
     time_available = '30min' if time_available.blank?
-    time_text = Step::TIME_AVAILABLE_OPTIONS[time_available]
+    time_text = time_available
 
     feeling_guidance = case feeling
                    when 'blocked_action'
@@ -124,5 +125,9 @@ class AiGenerator
       余計な説明や励ましはせず、シンプルに行動のみを提示してください。
       ユーザーの情報をもとに、今日できる具体的な行動を一つだけ提案してください。
     SYSTEM
+  end
+
+  def fallback_proposal(goal:)
+    "『#{goal}』について、まずは関連する情報を1つだけ調べて、気になったポイントを1つメモしてみませんか？"
   end
 end
