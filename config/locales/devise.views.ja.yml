@@ -1,0 +1,13 @@
+ja:
+  devise:
+    registrations:
+      new:
+        minimum_password_length: "パスワードは%{count}文字以上で入力してください"
+    shared:
+      links:
+        sign_in: ログイン
+        sign_up: 新規登録
+        forgot_password: パスワードをお忘れですか？
+        confirmation_instructions: 確認メールを受け取っていませんか？
+        unlock_instructions: アカウントのロック解除方法を受け取っていませんか？
+        sign_in_with_provider: "%{provider}でログイン"
