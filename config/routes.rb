@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'steps/result', to: 'steps#result'
 
  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/LetterOpener"
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
  end
 
 end

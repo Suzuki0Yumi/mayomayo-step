@@ -8,10 +8,24 @@ ja:
       new:
         title: "パスワードをお忘れですか？"
         send_me_password_reset_instructions: "パスワードリセットを送信"
+      edit:
+        title: "パスワード再設定"
+        new_password: "新しいパスワード"
+        confirm_new_password: "新しいパスワード（確認）"
     registrations:
       new:
         minimum_password_length: "パスワードは%{count}文字以上で入力してください"
         sign_up: "新規登録"
+      edit:
+        title: "アカウント編集"
+        update: "アカウントを更新"
+        cancel_account: "アカウント削除"
+        unhappy: "退会しますか？"
+        cancel_account_button: "アカウントを削除する"
+        back: "戻る"
+        current_password_help: "変更を確認するために現在のパスワードを入力してください"
+        confirm: "本当によろしいですか？"
+        password_help: "新しいパスワードを入力してください"
     shared:
       links:
         sign_in: "ログイン"
