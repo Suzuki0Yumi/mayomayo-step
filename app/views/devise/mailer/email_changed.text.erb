@@ -1,0 +1,11 @@
+<%= @email %> 様
+
+<% if @resource.try(:unconfirmed_email?) %>
+メールアドレスが <%= @resource.unconfirmed_email %> に変更されました。
+
+新しいメールアドレスの確認が完了するまで、変更は反映されません。
+<% else %>
+メールアドレスが <%= @resource.email %> に変更されました。
+<% end %>
+
+※このメールに心当たりがない場合は、至急お問い合わせください。
