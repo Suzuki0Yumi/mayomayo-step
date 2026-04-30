@@ -18,10 +18,10 @@
 
       <div class="user-menu">
         <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
+          <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
         <% else %>
-          <%= link_to "ログイン", new_user_session_path, class: "btn-login" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "btn-signup" %>
+          <%= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: "btn-login" %>
+          <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: "btn-signup" %>
         <% end %>
       </div>
    </header>
@@ -33,7 +33,7 @@
       C280,24 280,4 320,4 C360,4 360,24 400,24 C440,24 440,4 480,4 L480,0 Z"
       fill="#e76f51"/>
    </svg>
-
+  
    <%= yield %>
   </body>
 </html>

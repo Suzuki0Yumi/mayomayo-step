@@ -1,8 +1,13 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メール"
   devise:
     registrations:
       new:
         minimum_password_length: "パスワードは%{count}文字以上で入力してください"
+        sign_up: 新規登録
     shared:
       links:
         sign_in: ログイン
