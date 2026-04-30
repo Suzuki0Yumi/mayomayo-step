@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   root 'steps#new'
   post 'steps/generate', to: 'steps#generate', as: 'generate_step'
   get 'steps/result', to: 'steps#result'
+
+ if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/LetterOpener"
+ end
+
 end
