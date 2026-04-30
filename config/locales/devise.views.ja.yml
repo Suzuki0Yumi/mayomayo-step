@@ -4,16 +4,21 @@ ja:
       user:
         email: "メール"
   devise:
+    passwords:
+      new:
+        title: "パスワードをお忘れですか？"
+        send_me_password_reset_instructions: "パスワードリセットを送信"
     registrations:
       new:
         minimum_password_length: "パスワードは%{count}文字以上で入力してください"
-        sign_up: 新規登録
+        sign_up: "新規登録"
     shared:
       links:
-        sign_in: ログイン
-        sign_up: 新規登録
-        sign_out: ログアウト
-        forgot_password: パスワードをお忘れですか？
-        confirmation_instructions: 確認メールを受け取っていませんか？
-        unlock_instructions: アカウントのロック解除方法を受け取っていませんか？
+        sign_in: "ログイン"
+        sign_up: "新規登録"
+        sign_out: "ログアウト"
+        forgot_password: "パスワードをお忘れですか？"
+        confirmation_instructions: "確認メールを受け取っていませんか？"
+        unlock_instructions: "アカウントのロック解除方法を受け取っていませんか？"
         sign_in_with_provider: "%{provider}でログイン"
+
