@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static_pages/top'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,8 +9,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
-  root 'steps#new'
+  root 'static_pages#top'
+  get 'steps/new', to: 'steps#new', as: 'new_step'
   post 'steps/generate', to: 'steps#generate', as: 'generate_step'
   get 'steps/result', to: 'steps#result'
 
