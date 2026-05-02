@@ -1,0 +1,511 @@
+.lp-wrap {
+    font-family: Arial, sans-serif;
+    background-color: #FFF3D6;
+    color: #333;
+  }
+
+  /* ヒーロー */
+  .lp-hero {
+    text-align: center;
+    padding: 40px 16px 32px;
+  }
+
+  .lp-hero-badge {
+    display: inline-block;
+    background: #fff7f0;
+    color: #e76f51;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    border: 1.5px solid #f3d5b5;
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  .lp-hero-mascot {
+    height: 80px;
+    display: block;
+    margin: 0 auto 12px;
+    animation: lp-float 3s ease-in-out infinite;
+  }
+
+  @keyframes lp-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  .lp-hero h1 {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: bold;
+    line-height: 1.65;
+    color: #333;
+    margin: 0 0 14px;
+  }
+
+  .lp-hero h1 .lp-accent {
+    background: linear-gradient(135deg, #e76f51, #f4a261);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lp-hero-sub {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 28px;
+  }
+
+  .lp-hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* 共通ボタン（steps.cssの.btn/.btn-secondaryを踏襲） */
+  .lp-btn {
+    background: linear-gradient(135deg, #f4a261, #e76f51);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .lp-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(231, 111, 81, 0.25);
+    text-decoration: none;
+    color: white;
+  }
+
+  .lp-btn-secondary {
+    background: transparent;
+    color: #e76f51;
+    border: 2px solid #e76f51;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s;
+  }
+
+  .lp-btn-secondary:hover {
+    background: #fff7f0;
+    color: #e76f51;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  /*区切り*/
+  .lp-divider {
+    text-align: center;
+    color: #bbb;
+    font-size: 12px;
+    padding: 4px 0 24px;
+  }
+
+  /* 使い方セクション */
+  .lp-how {
+    background: #fff7f0;
+    border-top: 1px dashed #f3d5b5;
+    border-bottom: 1px dashed #f3d5b5;
+    padding: 36px 16px;
+  }
+
+  .lp-section-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: #555;
+    margin: 0 0 24px;
+  }
+
+  .lp-steps {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .lp-step-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px 14px;
+    text-align: center;
+    width: 150px;
+    border: 1.5px solid #f3d5b5;
+    box-shadow: 0 2px 8px rgba(231, 111, 81, 0.06);
+  }
+
+  .lp-step-num {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #f4a261, #e76f51);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 auto 10px;
+  }
+
+  .lp-step-icon { font-size: 26px; display: block; margin-bottom: 8px; }
+  .lp-step-label { font-size: 12px; font-weight: bold; color: #444; line-height: 1.5; }
+  .lp-step-desc  { font-size: 11px; color: #888; margin-top: 5px; line-height: 1.5; }
+
+  .lp-step-arrow {
+    font-size: 18px;
+    color: #f4a261;
+    display: flex;
+    align-items: center;
+    padding-top: 28px;
+  }
+
+  /* デモセクション*/
+  .lp-demo {
+    padding: 36px 16px;
+  }
+
+  .lp-demo-note {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin: -16px 0 18px;
+  }
+
+  /* steps.cssの main-form を踏襲 */
+  .lp-demo-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 28px;
+    border-radius: 20px;
+    border: 1.5px solid #f3d5b5;
+    box-shadow: 0 4px 16px rgba(231, 111, 81, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  /* mascot-bubble と同じスタイル */
+  .lp-demo-header {
+    background: #fffaf7;
+    border: 2px solid #f3d5b5;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lp-demo-header-icon { font-size: 22px; }
+
+  .lp-demo-header-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .lp-demo-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .lp-demo-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  /* status-btn を踏襲したチップ */
+  .lp-chip {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1.5px solid #e8d8c3;
+    background: #fffaf7;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    color: #444;
+    font-weight: 500;
+  }
+
+  .lp-chip:hover {
+    transform: translateY(-1px);
+    background: #fff7f0;
+    border-color: #f4a261;
+    color: #c1440e;
+  }
+
+  .lp-chip.active {
+    background: #f4a261;
+    color: white;
+    border-color: #f4a261;
+    box-shadow: 0 4px 10px rgba(244, 162, 97, 0.25);
+  }
+
+  /* steps.cssのgoal-group textarea を踏襲 */
+  .lp-demo-input {
+    width: 100%;
+    color: #5a3e2b;
+    background-color: #fffef5;
+    border: 2px dashed #f4a261;
+    border-radius: 16px;
+    box-shadow: 3px 3px 0px #f3d5b5;
+    line-height: 1.6;
+    padding: 12px 14px;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+    outline: none;
+    transition: 0.2s;
+    resize: none;
+  }
+
+  .lp-demo-input::placeholder { color: #c8b49a; }
+  .lp-demo-input:focus { border-color: #e76f51; box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.15), 3px 3px 0px #f3d5b5; }
+
+  /* status-buttons を踏襲したムードボタン群 */
+  .lp-mood-btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  /* steps.cssの status-btn を踏襲 */
+  .lp-mood-btn {
+    padding: 12px 10px;
+    border-radius: 999px;
+    border: 1.5px solid #e8d8c3;
+    background: #fffaf7;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    color: #444;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .lp-mood-btn:hover {
+    transform: translateY(-1px);
+    background: #fff7f0;
+    border-color: #f4a261;
+    color: #c1440e;
+  }
+
+  .lp-mood-btn.active {
+    background: #f4a261;
+    color: white;
+    border-color: #f4a261;
+    box-shadow: 0 4px 10px rgba(244, 162, 97, 0.25);
+  }
+
+  /* steps.cssの .btn を踏襲 */
+  .lp-demo-run-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #f4a261, #e76f51);
+    color: white;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    transition: 0.2s;
+    margin-top: 4px;
+  }
+
+  .lp-demo-run-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(231, 111, 81, 0.25);
+  }
+
+  .lp-demo-run-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  /* steps.cssの proposal-content を踏襲 */
+  .lp-result {
+    margin-top: 20px;
+    display: none;
+    animation: lp-pop 0.3s ease;
+  }
+
+  .lp-result.visible { display: block; }
+
+  @keyframes lp-pop {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .lp-result-inner {
+    background: #fff7f0;
+    border-left: 4px solid #f4a261;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    line-height: 1.8;
+    font-size: 14px;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .lp-result-label {
+    font-size: 11px;
+    font-weight: bold;
+    color: #e76f51;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .lp-result-step {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .lp-result-note {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .lp-result-cta {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    padding: 10px 0 0;
+  }
+
+  .lp-result-cta a {
+    color: #e76f51;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .lp-result-cta a:hover { text-decoration: underline; }
+
+  /* ローディングドット（steps.cssのthinking-animationを踏襲） */
+  .lp-loading-dots { display: inline-flex; gap: 3px; align-items: center; }
+  .lp-dot {
+    width: 7px; height: 7px;
+    background: #f4a261;
+    border-radius: 50%;
+    display: inline-block;
+    animation: lp-blink 1.4s infinite;
+  }
+  .lp-dot:nth-child(2) { animation-delay: 0.2s; }
+  .lp-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes lp-blink {
+    0%, 100% { opacity: 0.3; }
+    50%       { opacity: 1; }
+  }
+
+  /* 価値セクション*/
+  .lp-value {
+    background: #fff7f0;
+    border-top: 1px dashed #f3d5b5;
+    padding: 36px 16px;
+  }
+
+  .lp-value-cards {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lp-value-card {
+    background: #ffffff;
+    border: 1.5px solid #f3d5b5;
+    border-radius: 16px;
+    padding: 18px 16px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(231, 111, 81, 0.06);
+  }
+
+  .lp-value-icon { font-size: 28px; display: block; margin-bottom: 8px; }
+
+  .lp-value-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 6px;
+  }
+
+  .lp-value-desc { font-size: 11px; color: #888; line-height: 1.6; }
+
+  /* ========== CTAセクション ========== */
+  .lp-cta {
+    padding: 48px 16px;
+    text-align: center;
+  }
+
+  .lp-cta h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
+  .lp-cta-sub {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 22px;
+  }
+
+  /*フッター*/
+  .lp-footer {
+    background: #e76f51;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    font-size: 13px;
+  }
+
+  .lp-footer-logo {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .lp-footer-copyright {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  /* レスポンシブ  */
+  @media (max-width: 640px) {
+    .lp-step-arrow { display: none; }
+    .lp-step-card { width: 130px; }
+    .lp-value-card { width: 100%; max-width: 260px; }
+    .lp-demo-box { padding: 20px 14px; }
+  }
+
+  @media (max-width: 480px) {
+    .lp-mood-btns { grid-template-columns: 1fr; }
+  }

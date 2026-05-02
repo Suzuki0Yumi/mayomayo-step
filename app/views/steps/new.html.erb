@@ -12,12 +12,13 @@
               まよまよステップへようこそ！
             </p>
             <p class="bubble-text">
-              やること、もう迷わなくていい。<br>
-              今日やる一歩を1つに決めます🌱
+              「やりたいけど、できないまま」<br>
+              そんなこと、ありませんか？🌱<br>
             </p>
            <p class="how-to-use">
-              今の気持ちと、<br>やりたいことを入力するだけ。<br>
-              まよまよが、今日の一歩を見つけます。
+              <strong>「いつかやりたい」と思っていること</strong> を<br>
+              <strong>1つだけ</strong> 入力してね。<br>
+              まよまよと一緒に「それくらいならできそう♪」と思える一歩を決めよう。
            </p>
           </div>
       
@@ -25,9 +26,9 @@
         <div class="bubble-examples">
           <p class="examples-intro">例えば、こんなこと：</p>
            <ul class="examples-simple-list">
-               <li>料理がうまくなりたい</li>
-               <li>栄養について勉強したい</li>
-               <li>音楽を作ってみたい</li>
+               <li>料理を始めてみたい</li>
+               <li>英語を話せるようになりたい</li>
+               <li>ランニングを習慣にしたい</li>
             </ul>
         </div>
       </div>
@@ -48,15 +49,18 @@
     
     <div class="form-group goal-group">
       <%= f.label :goal, class: 'form-label' do %>
-         🌱気になっていること
+         🌱いつかやりたいこと
           <span class="required-badge">必須</span>
       <% end %>
 
       <%= f.text_area :goal, 
           class: 'form-control',
           rows: 3, 
-          placeholder: 'ここに書いてね', 
+          placeholder: '例：ギターを弾けるようになりたい、プログラミングを始めたい...',
           'aria-required': 'true' %>
+          <small class="form-text text-muted">
+           ※ 複数ある場合は、<strong>一番気になるもの1つ</strong> を書いてね
+          </small>
     </div>
 
      <div class="form-group">
@@ -79,7 +83,7 @@
     
     <div class="form-group">
        <%= f.label :time_available, class: 'form-label' do %>
-         ⌛一歩の大きさ
+         ⌛どれくらいできそう？
          <span class="required-badge">任意</span>
        <% end %>
        <%= f.hidden_field :time_available, id: "time-available-field" %>
@@ -96,7 +100,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.submit 'まよまよに相談する', class: 'btn btn-primary' %>
+      <%= f.submit '今日の一歩を決める', class: 'btn btn-primary' %>
     </div>
 
     <div id="loading-indicator" class="loading-indicator hidden">
@@ -108,7 +112,7 @@
             <span class="dot"></span>
           </div>
       </div>
-        <p class="loading-text">考え中...</p>
+        <p class="loading-text">一歩を決めています...</p>
     </div>
   <% end %>
 </div>
