@@ -11,7 +11,7 @@
         今日やることを1つだけ提案。迷わず動き出せる。
      </p>
      <div class="lp-hero-btns">
-       <a href="#lp-demo" class="lp-btn">🎮 デモを体験する</a>
+       <a href="#lp-demo" class="lp-btn">🖐️ デモを体験する</a>
        <% if user_signed_in? %>
          <%= link_to "さっそくはじめる →", new_step_path, class: "lp-btn-secondary" %>
        <% else %>
@@ -27,21 +27,25 @@
     <div class="lp-steps">
       <div class="lp-step-card">
         <div class="lp-step-num">1</div>
-        <span class="lp-step-icon">💭</span>
+        <div class="lp-step-icon">💭</div>
         <div class="lp-step-label">やりたいことを入力</div>
         <div class="lp-step-desc">料理・勉強・ランニングなど、なんでも</div>
       </div>
+
       <div class="lp-step-arrow">→</div>
+
       <div class="lp-step-card">
         <div class="lp-step-num">2</div>
-        <span class="lp-step-icon">🌡️</span>
+        <div class="lp-step-icon">🌡️</div>
         <div class="lp-step-label">今の気分を選ぶ</div>
         <div class="lp-step-desc">「ちょっとやりたい」「動きたいけど重い」など</div>
       </div>
+
       <div class="lp-step-arrow">→</div>
+
       <div class="lp-step-card">
         <div class="lp-step-num">3</div>
-        <span class="lp-step-icon">🌱</span>
+        <div class="lp-step-icon">🌱</div>
         <div class="lp-step-label">今日の一歩が決まる！</div>
         <div class="lp-step-desc">今日やることが1つだけ決まります</div>
       </div>
@@ -49,7 +53,7 @@
   </section>
 
   <section class="lp-demo" id="lp-demo">
-    <p class="lp-section-title">🎮 デモを体験してみよう</p>
+    <p class="lp-section-title"> 🖐️デモを体験してみよう</p>
     <p class="lp-demo-note">※ ログイン不要の疑似体験です（実際のAIは使用していません）</p>
 
     <div class="lp-demo-box">
@@ -60,16 +64,19 @@
       </div>
 
       <span class="lp-demo-label">「いつかやりたい」と思っていることを選んでみよう</span>
+
       <div class="lp-demo-chips">
         <span class="lp-chip" data-topic="料理を始めてみたい">🍳 料理を始めてみたい</span>
         <span class="lp-chip" data-topic="英語を話せるようになりたい">📚 英語を話せるようになりたい</span>
         <span class="lp-chip" data-topic="ランニングを習慣にしたい">🏃 ランニングを習慣にしたい</span>
         <span class="lp-chip" data-topic="イラストを描いてみたい">🎨 イラストを描いてみたい</span>
       </div>
+
       <textarea class="lp-demo-input" id="lp-topic" rows="2"
                 placeholder="例: ギターを弾けるようになりたい、プログラミングを始めたい..." maxlength="50"></textarea>
 
       <span class="lp-demo-label" style="margin-top:14px;">💭 今どんな感じ？</span>
+      
       <div class="lp-mood-btns">
         <div class="lp-mood-btn" data-mood="light">気になっているだけ</div>
         <div class="lp-mood-btn" data-mood="medium">ちょっとやりたい</div>
@@ -87,6 +94,7 @@
           <div class="lp-result-step" id="lp-result-step"></div>
           <div class="lp-result-note" id="lp-result-note"></div>
         </div>
+        
         <div class="lp-result-cta">
           <% if user_signed_in? %>
             <%= link_to "AIの本物の提案を試してみる →", new_step_path %>
@@ -100,20 +108,20 @@
   </section>
 
   <section class="lp-value">
-    <p class="lp-section-title">まよまよステップが選ばれる理由</p>
+    <p class="lp-section-title">まよまよステップの3つの特徴</p>
     <div class="lp-value-cards">
       <div class="lp-value-card">
-        <span class="lp-value-icon">🎯</span>
+        <div class="lp-value-icon">🎯</div>
         <div class="lp-value-title">迷いを排除</div>
         <div class="lp-value-desc">提案は必ず1つだけ。「あれもこれも」と迷わなくていい。</div>
       </div>
       <div class="lp-value-card">
-        <span class="lp-value-icon">💬</span>
+        <div class="lp-value-icon">💬</div>
         <div class="lp-value-title">すぐにできる具体的な提案</div>
         <div class="lp-value-desc">「今すぐできる」レベルの具体的な行動だけを提案します</div>
       </div>
       <div class="lp-value-card">
-        <span class="lp-value-icon">📊</span>
+        <div class="lp-value-icon">📊</div>
         <div class="lp-value-title">記録で成長を実感</div>
         <div class="lp-value-desc">「今日もやれた」を積み重ね、自分の変化が見えてくる。</div>
       </div>
@@ -121,19 +129,13 @@
   </section>
 
   <section class="lp-cta">
-    <h2>さあ、いつかやりたいを<br>今日の一歩に変えよう 🌱</h2>
+    <h2>いつかやりたいを<br>今日の一歩に変えよう 🌱</h2>
     <p class="lp-cta-sub">メールアドレスだけで、すぐに始められます</p>
     <% if user_signed_in? %>
       <%= link_to "さっそく一歩を踏み出す →", new_step_path, class: "lp-btn", style: "font-size:15px; padding:14px 32px;" %>
     <% else %>
-      <%= link_to "無料で始める ✨", new_user_registration_path, class: "lp-btn", style: "font-size:15px; padding:14px 32px;" %>
+      <%= link_to "登録して始める", new_user_registration_path, class: "lp-btn", style: "font-size:15px; padding:14px 32px;" %>
     <% end %>
   </section>
-
-  <footer class="lp-footer">
-    <p class="lp-footer-logo">まよまよステップ</p>
-    <p>やること、もう迷わなくていい。</p>
-    <p class="lp-footer-copyright">© 2026 まよまよステップ.</p>
-  </footer>
 
 </div><%# /.lp-wrap %>
