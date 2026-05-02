@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/terms'
+  get 'pages/privacy'
   get 'static_pages/top'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   get 'steps/new', to: 'steps#new', as: 'new_step'
   post 'steps/generate', to: 'steps#generate', as: 'generate_step'
   get 'steps/result', to: 'steps#result'
+
+  get 'terms', to: 'pages#terms'
+  get 'privacy', to: 'pages#privacy'
 
  if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
