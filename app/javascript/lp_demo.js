@@ -3,7 +3,6 @@ const initLpDemo = () => {
   const demoBox = document.querySelector('.lp-demo-box');
   if (!demoBox) return;
 
-  // 要素の取得
   const topicInput = document.getElementById('lp-topic');
   const moodBtns = document.querySelectorAll('.lp-mood-btn');
   const runBtn = document.getElementById('lp-run-btn');
@@ -18,7 +17,6 @@ const initLpDemo = () => {
   // チップ選択
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
-      // チップの選択状態を視覚的に表現(任意)
       chips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       
@@ -31,7 +29,6 @@ const initLpDemo = () => {
   // テキストエリア入力
   topicInput.addEventListener('input', (e) => {
     selectedTopic = e.target.value.trim();
-    // 入力時はチップの選択を解除
     chips.forEach(c => c.classList.remove('active'));
     checkFormComplete();
   });
@@ -50,7 +47,7 @@ const initLpDemo = () => {
   function checkFormComplete() {
     if (selectedTopic && selectedMood) {
       runBtn.disabled = false;
-      runBtn.classList.add('enabled'); // スタイル用のクラス(任意)
+      runBtn.classList.add('enabled');
     } else {
       runBtn.disabled = true;
       runBtn.classList.remove('enabled');
@@ -81,7 +78,6 @@ const initLpDemo = () => {
 
   // デモ用の結果生成
   function generateDemoResult(topic, mood) {
-    // トピックと気分に応じた固定の回答
     const results = {
       '料理を始めてみたい': {
         light: { 
@@ -157,7 +153,7 @@ const initLpDemo = () => {
       }
     };
 
-    // デフォルトの回答(トピックが一致しない場合)
+    // デフォルトの回答
     const defaultResults = {
       light: { 
         step: `「${topic}」について5分だけ調べてみる`, 
