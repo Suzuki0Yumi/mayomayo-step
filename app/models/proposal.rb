@@ -9,6 +9,17 @@ class Proposal < ApplicationRecord
   validates :suggestion, presence: true
 
   enum status: { pending: 0, accepted: 1, rejected: 2 }
-
+  enum feeling: { 
+    light_interest: 0, 
+    strong_interest: 1, 
+    blocked_action: 2, 
+    unclear_state: 3 
+  }
+  enum time_available: { 
+    five_min: 0, 
+    thirty_min: 1, 
+    sixty_min_plus: 2 
+  }
+  
   scope :recent, -> { order(created_at: :desc) }
 end
