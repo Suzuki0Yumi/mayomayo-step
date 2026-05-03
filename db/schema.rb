@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_05_03_040907) do
+ActiveRecord::Schema[7.1].define(version: 2026_05_03_063443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "proposals", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "goal", null: false
-    t.string "feeling", null: false
-    t.string "time_available"
+    t.integer "feeling", default: 0, null: false
+    t.integer "time_available", default: 1
     t.text "suggestion", null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false

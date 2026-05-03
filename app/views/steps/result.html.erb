@@ -17,7 +17,7 @@
     </div>
     
     <div class="proposal-content">
-      <%= simple_format(@proposal) %>
+      <%= simple_format(@proposal.suggestion) %>
     </div>
     
 
@@ -27,7 +27,7 @@
         <%= hidden_field_tag "step[feeling]", @step.feeling %>
         <%= hidden_field_tag "step[time_available]", @step.time_available %>
         <%= hidden_field_tag "is_retry", true %>
-        <%= hidden_field_tag "previous_proposal", @proposal %>
+        <%= hidden_field_tag "previous_proposal", @proposal.suggestion %>
 
         <%= submit_tag "もう一度提案する", class: "btn btn-secondary" %>
      <% end %>
