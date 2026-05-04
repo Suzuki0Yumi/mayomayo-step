@@ -17,7 +17,18 @@
     </div>
     
     <div class="proposal-content">
-      <%= simple_format(@proposal.suggestion) %>
+      <div class='empathy-section'>
+        <p><%= @proposal.empathy %></p>
+      </div>
+
+      <div class='action-section'>
+         <p><%= @proposal.action %></p>
+      </div>
+
+      <div class='reason-section'>
+        <p><%= @proposal.reason %></p>
+      </div>
+
     </div>
     
 
