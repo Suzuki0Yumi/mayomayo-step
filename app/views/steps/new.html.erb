@@ -16,21 +16,11 @@
               そんなこと、ありませんか？🌱<br>
             </p>
            <p class="how-to-use">
-              <strong>「いつかやりたい」と思っていること</strong> を<br>
+              <strong>ずっと頭の片隅にあること</strong> を
               <strong>1つだけ</strong> 入力してね。<br>
               まよまよと一緒に「それくらいならできそう♪」と思える一歩を決めよう。
            </p>
           </div>
-      
-
-        <div class="bubble-examples">
-          <p class="examples-intro">例えば、こんなこと：</p>
-           <ul class="examples-simple-list">
-               <li>料理を始めてみたい</li>
-               <li>英語を話せるようになりたい</li>
-               <li>ランニングを習慣にしたい</li>
-            </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -49,7 +39,7 @@
     
     <div class="form-group goal-group">
       <%= f.label :goal, class: 'form-label' do %>
-         🌱いつかやりたいこと
+         🌱いつかやろうと思ってること
           <span class="required-badge">必須</span>
       <% end %>
 
@@ -83,7 +73,7 @@
     
     <div class="form-group">
        <%= f.label :time_available, class: 'form-label' do %>
-         ⌛どれくらいできそう？
+         ⌛どれくらいのモチベーション？
          <span class="required-badge">任意</span>
        <% end %>
        <%= f.hidden_field :time_available, id: "time-available-field" %>

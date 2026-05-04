@@ -22,9 +22,8 @@
     
 
     <div class="primary-action">
-      <button class='btn-try'>
-         ✨やってみる
-      </button>
+      <%= button_to '✨やってみる', accepted_proposal_path(@proposal), 
+          method: :patch, class: 'btn-try' %>
     </div>
 
       <div class='secondary-actions'>

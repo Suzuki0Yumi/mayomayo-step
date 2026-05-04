@@ -1,0 +1,71 @@
+<div class="container">
+
+  <div class='header-area'>
+    <div class="title-wrap">
+       <h1 class="page-title">🌱 今できそうな一歩</h1>
+       <p class="hint">手が空いたときに、ここから1つ選んでやってみよう</p>
+    </div>
+     <%= image_tag "mayomayo-study.png", class: "mascot-img proposals-mascot" %>
+  </div>
+
+  <% if @proposals.any? %>
+    <% pick = @proposals.first %>
+    <div class="today-pick">
+      <p class="pick-label">✨ 今のあなたに合いそう</p>
+
+      <div class="pick-card">
+        <p class="pick-action"><%= pick.suggestion %></p>
+        <small class="pick-goal">きっかけ：<%= pick.goal %></small>
+
+        <div class="pick-actions">
+          <%= button_to 'やってみる', accepted_proposal_path(pick),
+              method: :patch, class: 'btn-primary' %>
+          <%= button_to 'あとで', skipped_proposal_path(pick),
+              method: :patch, class: 'btn-subtle' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class='status-filters'>
+    <%= link_to 'すべて', proposals_path(status: 'pending'),
+        class: "filter-btn #{'active' if @status_filter == 'pending'}" %>
+    <%= link_to '今やってる', proposals_path(status: 'accepted'),
+        class: "filter-btn #{'active' if @status_filter == 'accepted'}" %>
+    <%= link_to 'できた', proposals_path(status: 'completed'),
+        class: "filter-btn #{'active' if @status_filter == 'completed'}" %>
+    <%= link_to '今じゃない', proposals_path(status: 'skipped'),
+        class: "filter-btn #{'active' if @status_filter == 'skipped'}" %>
+  </div>
+
+  <div class='proposal-cards'>
+    <% @proposals.each do |proposal| %>
+      <div class='proposal-card <%= proposal.status %>'>
+
+        <div class="card-main">
+          <p class='action-text'><%= proposal.suggestion %></p>
+          <small class='goal-text'>きっかけ：<%= proposal.goal %></small>
+        </div>
+
+        <div class='card-actions'>
+          <% if proposal.pending? %>
+            <%= button_to 'やる', accepted_proposal_path(proposal),
+                method: :patch, class: 'btn-primary btn-sm' %>
+          
+          <% elsif proposal.accepted? %>
+            <%= button_to '完了', completed_proposal_path(proposal),
+                method: :patch, class: 'btn-success btn-sm' %>
+
+          <% elsif proposal.completed? %>
+            <span class='done-label'>✔ やれた</span>
+
+          <% elsif proposal.skipped? %>
+            <%= button_to '今ならやる', accepted_proposal_path(proposal),
+                method: :patch, class: 'btn-primary btn-sm' %>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>

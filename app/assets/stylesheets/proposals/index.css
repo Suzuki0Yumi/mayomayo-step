@@ -1,0 +1,244 @@
+/* 全体 */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* ヘッダー */
+.header-area {
+  position: relative;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.title-wrap {
+  max-width: 100%;
+}
+
+.page-title {
+  color: #555;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.proposals-mascot {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  width: 90px;
+  opacity: 0.95;
+}
+
+/* 説明 */
+.hint {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 24px;
+}
+
+/* 今日のピック */
+.today-pick {
+  margin-bottom: 28px;
+}
+
+.pick-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.pick-card {
+  background: linear-gradient(135deg, #fff7f0, #ffe8d6);
+  border: 2px solid #f4a261;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(244, 162, 97, 0.18);
+  transition: all 0.2s ease;
+}
+
+.pick-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(244, 162, 97, 0.22);
+}
+
+.pick-action {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.pick-goal {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+
+/* アクション */
+.pick-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+/* フィルター */
+.status-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  text-decoration: none;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #fff4ec;
+}
+
+.filter-btn.active {
+  background: #f4a261;
+  color: white;
+  border-color: #f4a261;
+}
+
+/* カード一覧 */
+.proposal-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.proposal-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.proposal-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
+.card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* 行動メイン */
+.action-text {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.goal-text {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ボタン共通リセット */
+button {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ボタン（統一して丸く＆高さ揃え） */
+.btn-primary,
+.btn-success,
+.btn-subtle {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* メインCTA */
+.btn-primary {
+  background: linear-gradient(135deg, #f4a261, #e76f51);
+  color: white;
+  box-shadow: 0 4px 10px rgba(231, 111, 81, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(231, 111, 81, 0.3);
+}
+
+/* 完了ボタン（丸くて気持ちいいやつ） */
+.btn-success {
+  background: #e76f51;
+  color: white;
+  box-shadow: 0 4px 10px rgba(231, 111, 81, 0.2);
+}
+
+.btn-success:hover {
+  transform: translateY(-1px);
+}
+
+/* サブ */
+.btn-subtle {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.btn-subtle:hover {
+  background: #f7f7f7;
+}
+
+/* 状態 */
+.proposal-card.completed {
+  opacity: 0.55;
+}
+
+.done-label {
+  font-size: 12px;
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+
+/* スマホ用 */
+@media (max-width: 480px) {
+  .proposals-mascot {
+    width: 70px;
+    top: 0;
+  }
+
+  .title-wrap {
+    max-width: 100%;
+  }
+}

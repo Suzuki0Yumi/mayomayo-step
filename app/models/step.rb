@@ -20,9 +20,9 @@ class Step
   }.freeze
 
   TIME_AVAILABLE_OPTIONS = {
-    '5min' => 'めちゃ軽く',
+    '5min' => '軽く',
     '30min' => 'ふつう',
-    '60min_plus' => '少しだけ頑張る'
+    '60min_plus' => '頑張りたい'
   }.freeze
 
 
