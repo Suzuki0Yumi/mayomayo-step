@@ -25,7 +25,7 @@ class ProposalsController < ApplicationController
 
     def accepted
       @proposal.accepted!
-      redirect_to proposals_path, notice: '一覧に追加しました！一緒に頑張ろう🌱'
+      redirect_to proposals_path, notice: '一覧に追加しました！やってみよう🌱'
     rescue ActiveRecord::RecordInvalid
       redirect_to proposals_path, alert: '追加に失敗しました'
     end

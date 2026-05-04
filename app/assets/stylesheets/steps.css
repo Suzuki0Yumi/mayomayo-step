@@ -549,3 +549,14 @@ label {
   background: white;
   color: #e76f51;
 }
+.main-form .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 240px;      /* ←これ重要（好きな幅でOK） */
+  height: 48px;
+
+  font-size: 15px;
+  border-radius: 999px;
+}
