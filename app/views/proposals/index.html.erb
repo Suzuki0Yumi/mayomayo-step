@@ -1,0 +1,52 @@
+<div class='container'>
+  <h1>提案一覧</h1>
+
+  <!-- ステータスフィルター -->
+  <div class='status-filters'>
+    <%= link_to '提案中', proposals_path(status: 'pending'),
+        class: "filter-btn #{'active' if @status_filter == 'pending'}" %>
+    <%= link_to 'やってみる', proposals_path(status: 'accepted'),
+        class: "filter-btn #{'active' if @status_filter == 'accepted'}" %>
+    <%= link_to '完了', proposals_path(status: 'completed'),
+        class: "filter-btn #{'active' if @status_filter == 'completed'}" %>
+    <%= link_to 'スキップ', proposals_path(status: 'skipped'),
+        class: "filter-btn #{'active' if @status_filter == 'skipped'}" %>
+  </div>
+
+  <!-- 提案一覧 -->
+  <div class='proposals-list'>
+    <% if @proposals.any? %>
+      <% @proposals.each do |proposal| %>
+        <div class='proposal-card'>
+          <h3><%= proposal.goal %></h3>
+          <p><%= proposal.suggestion %></p>
+
+          <div class='proposal-actions'>
+            <% if proposal.pending? %>
+              <%= button_to 'やってみる', accepted_proposal_path(proposal), 
+                  method: :patch, class: 'btn btn-primary' %>
+              <%= button_to 'スキップ', skipped_proposal_path(proposal), 
+                  method: :patch, class: 'btn btn-secondary' %>
+            
+            <% elsif proposal.accepted? %>
+              <%= button_to '完了', completed_proposal_path(proposal), 
+                  method: :patch, class: 'btn btn-success' %>
+              <%= button_to '提案に戻す', pending_proposal_path(proposal), 
+                  method: :patch, class: 'btn btn-warning' %>
+            
+            <% elsif proposal.completed? %>
+              <span class='badge badge-success'>達成済み 🎉</span>
+             
+            <% elsif proposal.skipped? %>
+              <%= button_to 'やっぱりやってみる', accepted_proposal_path(proposal), 
+                  method: :patch, class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      
+    <% else %>
+      <p class='no-proposals'>まだ提案がありません</p>
+    <% end %>
+  </div>
+</div>

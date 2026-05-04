@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_proposal, only: [:pending, :accepted, :completed, :skipped]
 
   def index 
      @status_filter = params[:status] || 'accepted'
@@ -16,38 +17,36 @@ class ProposalsController < ApplicationController
    end
 
     def pending
-      @proposal = current_user.proposals.find(params[:id])
-      if @proposal.update(status: :pending)
-        redirect_to proposals_path, notice: '提案に戻しました'
-      else
-        redirect_to proposals_path, alert: '更新に失敗しました'
-      end
+      @proposal.pending!
+      redirect_to proposals_path, notice: '提案に戻しました'
+    rescue ActiveRecord::RecordInvalid
+      redirect_to proposals_path, alert: '更新に失敗しました'
     end
 
     def accepted
-      @proposal = current_user.proposals.find(params[:id])
-      if @proposal.update(status: :accepted)
-        redirect_to proposals_path, notice: '一覧に追加しました！一緒に頑張ろう🌱'
-      else
-        redirect_to proposals_path, alert: '追加に失敗しました'
-      end 
+      @proposal.accepted!
+      redirect_to proposals_path, notice: '一覧に追加しました！一緒に頑張ろう🌱'
+    rescue ActiveRecord::RecordInvalid
+      redirect_to proposals_path, alert: '追加に失敗しました'
     end
 
     def completed
-      @proposal = current_user.proposals.find(params[:id])
-      if @proposal.update(status: :completed)
-        redirect_to proposals_path, notice: 'やったね！🎉'
-      else
-        redirect_to proposals_path, alert: '更新に失敗しました'
-      end
+      @proposal.completed!
+      redirect_to proposals_path, notice: 'やったね！🎉'
+    rescue ActiveRecord::RecordInvalid
+      redirect_to proposals_path, alert: '更新に失敗しました'
     end
 
     def skipped
+      @proposal.skipped!
+      redirect_to proposals_path, notice: 'スキップしました'
+    rescue ActiveRecord::RecordInvalid
+      redirect_to proposals_path, alert: '更新に失敗しました'
+    end
+
+    private
+
+    def set_proposal
       @proposal = current_user.proposals.find(params[:id])
-      if @proposal.update(status: :skipped)
-        redirect_to proposals_path, notice: 'スキップしました'
-      else
-        redirect_to proposals_path, alert: '更新に失敗しました'
-      end
     end
 end
