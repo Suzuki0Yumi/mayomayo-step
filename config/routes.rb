@@ -23,4 +23,13 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
  end
 
+  resources :proposals, only: [:index] do
+    member do
+      patch :pending
+      patch :accepted
+      patch :completed
+      patch :skipped
+    end
+   end            
+
 end
