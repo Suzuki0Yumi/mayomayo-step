@@ -12,10 +12,40 @@ class AiGenerator
        previous_proposal: previous_proposal 
      )
      result = call_api(prompt)
-     result || fallback_proposal(goal: goal)
+
+    if result
+      parse_result(result)
+    else
+      fallback_proposal(goal: goal)
+    end
   end
-      
+
+
   private
+  
+  def parse_result(text)
+    lines = text.split("\n").map(&:strip).reject(&:empty?)
+
+    parsed = {
+      empathy: nil,
+      action: nil,
+      reason: nil,
+      suggestion: text
+    }
+
+    lines.each do |line|
+      case line
+      when /^共感[：:]\s*(.+)$/
+        parsed[:empathy] = $1.strip
+      when /^提案[：:]\s*(.+)$/
+        parsed[:action] = $1.strip
+      when /^理由[：:]\s*(.+)$/
+        parsed[:reason] = $1.strip
+      end
+    end
+
+    parsed
+  end
 
   def build_prompt(goal:, feeling:, time_available:, is_retry:, previous_proposal:)
     feeling_text = feeling
@@ -122,6 +152,13 @@ PROMPT
   end
 
   def fallback_proposal(goal:)
-    "『#{goal}』について、まずは関連する情報を1つだけ調べて、気になったポイントを1つメモしてみませんか？"
+    action_text = "『#{goal}』について、まずは関連する情報を1つだけ調べて、気になったポイントを1つメモしてみよう！"
+
+    {
+      empathy: "新しいことに興味を持っている状態ですね",
+      action: action_text,
+      reason: "小さな一歩が行動のきっかけになるから",
+      suggestion: "共感：新しいことに興味を持っている状態ですね\n提案：#{action_text}\n理由：小さな一歩が行動のきっかけになるから"
+    }
   end
 end

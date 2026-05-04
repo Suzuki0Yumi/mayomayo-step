@@ -13,7 +13,7 @@ class StepsController < ApplicationController
       previous = retry_params[:previous_proposal]
 
       ai = AiGenerator.new
-      suggestion = ai.generate(
+      result = ai.generate(
         goal: @step.goal,
         feeling: Step::FEELINGS[@step.feeling],
         time_available: Step::TIME_AVAILABLE_OPTIONS[@step.time_available],
@@ -25,7 +25,10 @@ class StepsController < ApplicationController
         goal: @step.goal,
         feeling: map_feeling(@step.feeling),
         time_available: map_time_available(@step.time_available),
-        suggestion: suggestion,
+        suggestion: result[:suggestion],
+        empathy: result[:empathy],
+        reason: result[:reason],
+        action: result[:action],
         status: :pending
       )
 
