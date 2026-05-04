@@ -22,11 +22,11 @@
     
 
     <div class="primary-action">
-      <button class='btn-try'>
-         ✨やってみる
-      </button>
+      <%= form_with url: accept_proposal_path(@proposal), method: :patch do %>
+        <%= submit_tag '✨やってみる', class: 'btn-try' %>
+      <% end %>
     </div>
-
+    
       <div class='secondary-actions'>
         <%= form_with url: generate_step_path, method: :post do %>
           <%= hidden_field_tag "step[goal]", @step.goal %>
