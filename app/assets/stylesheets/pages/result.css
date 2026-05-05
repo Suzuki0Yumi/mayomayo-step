@@ -133,3 +133,29 @@
   color: #c1440e;
   border-bottom: 1px solid #c1440e;
 }
+
+.proposal-content {
+  line-height: 1.8;
+}
+
+.empathy-section,
+.action-section,
+.reason-section {
+  margin-bottom: 20px;
+}
+
+.empathy-section p {
+  color: #555;
+  font-size: 15px;
+}
+
+.action-section p {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.reason-section p {
+  color: #666;
+  font-size: 14px;
+}

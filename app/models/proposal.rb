@@ -4,6 +4,8 @@ class Proposal < ApplicationRecord
   validates :goal, presence: true, length: { maximum: 500 }
   validates :feeling, presence: true
   validates :suggestion, presence: true
+  validates :reason, presence: true
+  validates :action, presence: true
 
   enum status: { pending: 0, accepted: 1, completed: 2, skipped: 3 }
   

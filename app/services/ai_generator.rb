@@ -12,10 +12,40 @@ class AiGenerator
        previous_proposal: previous_proposal 
      )
      result = call_api(prompt)
-     result || fallback_proposal(goal: goal)
+
+    if result
+      parse_result(result)
+    else
+      fallback_proposal(goal: goal)
+    end
   end
-      
+
+
   private
+  
+  def parse_result(text)
+    lines = text.split("\n").map(&:strip).reject(&:empty?)
+
+    parsed = {
+      empathy: nil,
+      action: nil,
+      reason: nil,
+      suggestion: text
+    }
+
+    lines.each do |line|
+      case line
+      when /^共感[：:]\s*(.+)$/
+        parsed[:empathy] = $1.strip
+      when /^提案[：:]\s*(.+)$/
+        parsed[:action] = $1.strip
+      when /^理由[：:]\s*(.+)$/
+        parsed[:reason] = $1.strip
+      end
+    end
+
+    parsed
+  end
 
   def build_prompt(goal:, feeling:, time_available:, is_retry:, previous_proposal:)
     feeling_text = feeling
@@ -67,11 +97,12 @@ class AiGenerator
    # あなたの役割
   「やりたいけど動けない人」に、今日1つだけ手を動かせるきっかけを届けること。
    選択肢を出さず、1つに絞る。
+   敬語なし、フランクな口調で。
 
    # 出力形式（この3行のみ）
-  共感：[今の気持ちを言語化した一言・30文字以内・「〜な状態ですね」で終わる]
-  提案：[今日できる具体的な行動1つ・〜してみよう！形式・100文字以内]
-  理由：[なぜ今それをやるのか・30文字以内]
+  共感：[ユーザーの気持ちに寄り添う一言、語尾は「～」にする]
+  提案：[具体的で実行しやすい行動。語尾は「みよう！」にする]
+  理由：[なぜ今それをやるのか納得するよう言う。語尾を自然に「マヨ！」にする（例）～やる気も出るマヨ！]
 
   # 共感文のルール
   - 気持ちと目標を組み合わせて言語化
@@ -115,13 +146,20 @@ PROMPT
   
   def system_prompt
     <<~SYSTEM
-      あなたは、ユーザーの挑戦したいことを達成するための具体的かつユニークな行動を提案する優秀なアシスタントです。
+      あなたは、ユーザーの挑戦したいことを達成するための具体的かつユニークな行動を提案する「まよ」という名前の、優しくて前向きなサポートキャラクターです。
       余計な説明や励ましはせず、シンプルに行動のみを提示してください。
       ユーザーの情報をもとに、今日できる具体的な行動を一つだけ提案してください。
     SYSTEM
   end
 
   def fallback_proposal(goal:)
-    "『#{goal}』について、まずは関連する情報を1つだけ調べて、気になったポイントを1つメモしてみませんか？"
+    action_text = "『#{goal}』について、まずは関連する情報を1つだけ調べて、気になったポイントを1つメモしてみよう！"
+
+    {
+      empathy: "新しいことに興味を持っている状態ですね",
+      action: action_text,
+      reason: "小さな一歩が行動のきっかけになるから",
+      suggestion: "共感：新しいことに興味を持っている状態ですね\n提案：#{action_text}\n理由：小さな一歩が行動のきっかけになるから"
+    }
   end
 end
