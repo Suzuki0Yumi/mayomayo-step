@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_proposal, only: [:show, :pending, :accepted, :completed, :skipped]
+    before_action :set_proposal, only: [:show, :pending, :accepted, :completed, :skipped, :destroy]
 
   def index 
      @status_filter = params[:status] || 'accepted'
@@ -44,9 +44,14 @@ class ProposalsController < ApplicationController
       redirect_to proposals_path, alert: '更新に失敗しました'
     end
 
-   def show
-   end
+    def show
+    end
 
+    def destroy
+     @proposal.destroy
+     redirect_to proposals_path, notice: '提案を削除しました'
+    end
+    
     private
 
     def set_proposal

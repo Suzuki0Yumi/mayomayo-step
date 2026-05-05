@@ -142,22 +142,20 @@
   margin: 0;
 }
 
-/* 削除リンク */
-.detail-delete {
-  text-align: center;
-  margin-top: 24px;
-}
-
 .delete-link {
+  background-color: #fff;
   color: #e76f51;
+  border: 1px solid #f1d0c9;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
   font-size: 13px;
-  font-weight: 500;
-  opacity: 0.8;
+  transition: all 0.2s ease;
 }
 
 .delete-link:hover {
-  color: #e76f51;
-  border-bottom-color: #e76f51;
+  background-color: #fff5f2;
+  border-color: #e76f51;
 }
 
 /* レスポンシブ対応 */

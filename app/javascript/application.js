@@ -1,3 +1,6 @@
+import "@hotwired/turbo-rails"
+import "./lp_demo"
+
 // ① ボタン（UI）
 document.addEventListener('click', (e) => {
   const button = e.target.closest('.status-btn');
@@ -54,6 +57,3 @@ const initStepForm = () => {
 // ③ 初期化
 document.addEventListener("DOMContentLoaded", initStepForm);
 document.addEventListener("turbo:load", initStepForm);
-
-// ④ デモ機能の読み込み
-import "./lp_demo"
