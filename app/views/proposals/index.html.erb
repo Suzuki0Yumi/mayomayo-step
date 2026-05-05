@@ -43,7 +43,9 @@
       <div class='proposal-card <%= proposal.status %>'>
 
         <div class="card-main">
-          <p class='action-text'><%= proposal.action %></p>
+          <p class='action-text'>
+            <%= link_to proposal.action, proposal_path(proposal), class: 'action-link ' %>
+          </p>
           <small class='goal-text'>きっかけ：<%= proposal.goal %></small>
         </div>
 

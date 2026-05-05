@@ -510,7 +510,7 @@
 
 /* リンクのスタイル */
 .lp-footer-link {
-  color: #264653;
+  color:  #ffd7ba;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -518,7 +518,7 @@
 }
 
 .lp-footer-link:hover {
-  color: #2a9d8f;
+  color: #ffffff;
   text-decoration: underline;
 }
 

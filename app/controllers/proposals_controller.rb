@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_proposal, only: [:pending, :accepted, :completed, :skipped]
+    before_action :set_proposal, only: [:show, :pending, :accepted, :completed, :skipped]
 
   def index 
      @status_filter = params[:status] || 'accepted'
@@ -43,6 +43,9 @@ class ProposalsController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       redirect_to proposals_path, alert: '更新に失敗しました'
     end
+
+   def show
+   end
 
     private
 
