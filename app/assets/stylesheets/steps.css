@@ -554,7 +554,7 @@ label {
   align-items: center;
   justify-content: center;
 
-  width: 240px;      /* ←これ重要（好きな幅でOK） */
+  width: 240px; 
   height: 48px;
 
   font-size: 15px;

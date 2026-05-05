@@ -1,0 +1,66 @@
+<div class="container detail-container">
+  
+  <div class="back-link-top">
+    <%= link_to '← 戻る', proposals_path %>
+  </div>
+
+  <div class="detail-card">
+    
+    <div class="detail-goal-section">
+      <span class="goal-icon">🌱</span>
+      <p class="detail-goal"><%= @proposal.goal %></p>
+    </div>
+
+    <p class="created-at">
+      <%= @proposal.created_at.strftime("%Y/%m/%d %H:%M") %>に提案
+    </p>
+
+    <div class="proposal-body">
+      <div class="empathy-block">
+        <span class="emoji">💭</span>
+        <p><%= @proposal.empathy %></p>
+      </div>
+
+      <div class="action-block highlight">
+        <span class="emoji">✨</span>
+        <p><%= @proposal.action %></p>
+      </div>
+
+      <div class="reason-block">
+        <span class="emoji">💡</span>
+        <p><%= @proposal.reason %></p>
+      </div>
+    </div>
+
+    <div class="detail-actions">
+      <% if @proposal.pending? %>
+        <%= button_to 'やってみる 🌱', accepted_proposal_path(@proposal),
+            method: :patch, class: 'btn-primary' %>
+        <%= button_to 'あとで', skipped_proposal_path(@proposal),
+            method: :patch, class: 'btn-subtle' %>
+            
+      <% elsif @proposal.accepted? %>
+        <%= button_to 'できた！', completed_proposal_path(@proposal),
+            method: :patch, class: 'btn-success' %>
+            
+      <% elsif @proposal.skipped? %>
+        <%= button_to '今ならやる', accepted_proposal_path(@proposal),
+            method: :patch, class: 'btn-primary' %>
+            
+      <% elsif @proposal.completed? %>
+        <div class="completed-badge">
+          <span class="badge-icon">✨</span>
+          <span class="badge-text">やれた！</span>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="detail-delete">
+    <%= link_to 'この提案を削除', proposal_path(@proposal),
+        data: { turbo_method: :delete, turbo_confirm: '削除する？' },
+        class: 'delete-link' %>
+  </div>
+
+</div>
