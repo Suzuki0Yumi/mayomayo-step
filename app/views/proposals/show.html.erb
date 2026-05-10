@@ -57,10 +57,10 @@
 
   </div>
 
-  <div class="detail-delete">
-    <%= link_to 'この提案を削除', proposal_path(@proposal),
-        data: { turbo_method: :delete, turbo_confirm: '削除する？' },
-        class: 'delete-link' %>
-  </div>
+ <%= button_to 'この提案を削除',
+    proposal_path(@proposal),
+    method: :delete,
+    data: { turbo_confirm: 'この一歩を手放す？' } ,
+    class: 'delete-link' %>
 
 </div>
