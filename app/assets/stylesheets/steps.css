@@ -222,33 +222,6 @@ label {
   text-decoration: none;
 }
 
-.header {
-  background: #e76f51;
-  color: white;
-  padding: 20px 16px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 0;
-  border-radius: 0;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.logo-img {
-  height: 200px; 
-  width: auto;
-  display: inline-block;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
-  transition: transform 0.3s ease;
-  padding-top:15px;
-}
-
-.logo-img:hover {
-  transform: scale(1.03);
-}
 
 .mascot-area {
   display: flex;
@@ -497,58 +470,7 @@ label {
   50% { opacity: 1; }
 }
 
-/* ログインボタン */
 
-.user-menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 12px;
-}
-
-.btn-login,
-.btn-signup,
-.btn-logout {
-  padding: 8px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.btn-login {
-  background: white;
-  color: #e76f51;
-  border: 2px solid white;
-}
-
-.btn-login:hover {
-  background: #fff7f0;
-  color: #e76f51;
-}
-
-.btn-signup {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-
-.btn-signup:hover {
-  background: white;
-  color: #e76f51;
-}
-
-.btn-logout {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-
-.btn-logout:hover {
-  background: white;
-  color: #e76f51;
-}
 .main-form .btn {
   display: inline-flex;
   align-items: center;

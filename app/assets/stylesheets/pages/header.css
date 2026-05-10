@@ -1,0 +1,146 @@
+/* ヘッダー全体 */
+.header {
+  background: #e76f51;
+  color: white;
+  padding: 0 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ヘッダーの内側コンテナ */
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* ロゴエリア */
+.logo-area {
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 180px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.03);
+}
+
+/* ナビゲーションエリア */
+.main-nav-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+/* ユーザーメニューエリア */
+.user-menu {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-login,
+.btn-signup,
+.btn-logout {
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.btn-login {
+  background: white;
+  color: #e76f51;
+  border: 2px solid white;
+}
+
+.btn-login:hover {
+  background: #fff7f0;
+  color: #e76f51;
+}
+
+.btn-signup {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-signup:hover {
+  background: white;
+  color: #e76f51;
+}
+
+.btn-logout {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-logout:hover {
+  background: white;
+  color: #e76f51;
+}
+
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 16px 0;
+    gap: 12px;
+  }
+  
+  .header {
+    height: auto;
+  }
+  
+  .main-nav-area {
+    width: 100%;
+  }
+  
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .user-menu {
+    width: 100%;
+    justify-content: center;
+  }
+}

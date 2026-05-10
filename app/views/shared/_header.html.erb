@@ -1,14 +1,19 @@
 <header class='header'>
+  <div class='header-container'>
+    <div class='logo-area'>
       <%= link_to root_path do %>
         <%= image_tag "mayo-header.png", class:"logo-img" %>
       <% end %>
+    </div>
 
+    <div class='main-nav-area'>
        <% if user_signed_in? %>
           <nav class='main-nav'>
-           <%= link_to '提案一覧', proposals_path, class: 'nav-link' %>
            <%= link_to '新しい提案', new_step_path, class: 'nav-link' %>
+           <%= link_to '提案一覧', proposals_path, class: 'nav-link' %>
           </nav>
         <% end %>
+    </div>
 
       <div class="user-menu">
         <% if user_signed_in? %>
@@ -19,8 +24,7 @@
         <% end %>
       </div>
 
-      <%= link_to 'アカウント設定', edit_user_registration_path %>
-
+  </div>
 </header>
 
 <svg style="display:block; width:100%; height:28px; margin-top:-1px;"
