@@ -33,20 +33,9 @@
     </div>
 
     <div class="detail-actions">
-      <% if @proposal.pending? %>
-        <%= button_to 'やってみる 🌱', accepted_proposal_path(@proposal),
-            method: :patch, class: 'btn-primary' %>
-        <%= button_to 'あとで', skipped_proposal_path(@proposal),
-            method: :patch, class: 'btn-subtle' %>
-            
-      <% elsif @proposal.accepted? %>
+      <% if @proposal.accepted? %>
         <%= button_to 'できた！', completed_proposal_path(@proposal),
             method: :patch, class: 'btn-success' %>
-            
-      <% elsif @proposal.skipped? %>
-        <%= button_to '今ならやる', accepted_proposal_path(@proposal),
-            method: :patch, class: 'btn-primary' %>
-            
       <% elsif @proposal.completed? %>
         <div class="completed-badge">
           <span class="badge-icon">✨</span>

@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_proposal, only: [:show, :pending, :accepted, :completed, :skipped, :destroy]
+    before_action :set_proposal, only: [:show, :accepted, :completed, :destroy]
 
   def index 
      @status_filter = params[:status] || 'accepted'
