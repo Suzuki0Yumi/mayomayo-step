@@ -60,7 +60,7 @@
  <%= button_to 'この提案を削除',
     proposal_path(@proposal),
     method: :delete,
-    form: { data: { turbo_confirm: 'この一歩を手放す？' } },
+    data: { turbo_confirm: 'この一歩を手放す？' } ,
     class: 'delete-link' %>
 
-</div>git
+</div>

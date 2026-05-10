@@ -25,7 +25,7 @@
     </div>
   </div>
   
-  <%= form_with url: generate_step_path, method: :post, scope: :step, local: true, class: "main-form" do |f| %>
+  <%= form_with url: generate_step_path, method: :post, scope: :step, class: "main-form" do |f| %>
     
     <% if @step.errors.any? %>
       <div class='alert alert-danger'>

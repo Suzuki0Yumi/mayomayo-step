@@ -158,6 +158,10 @@
   border-color: #e76f51;
 }
 
+form.button_to {
+  text-align: center;
+  margin-top: 16px;
+}
 /* レスポンシブ対応 */
 @media (max-width: 640px) {
   .detail-card {

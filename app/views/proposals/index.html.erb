@@ -28,13 +28,13 @@
   <% end %>
 
   <div class='status-filters'>
-    <%= link_to 'すべて', proposals_path(status: 'pending'),
+    <%= link_to '提案リスト', proposals_path(status: 'pending'),
         class: "filter-btn #{'active' if @status_filter == 'pending'}" %>
     <%= link_to '今やってる', proposals_path(status: 'accepted'),
         class: "filter-btn #{'active' if @status_filter == 'accepted'}" %>
     <%= link_to 'できた', proposals_path(status: 'completed'),
         class: "filter-btn #{'active' if @status_filter == 'completed'}" %>
-    <%= link_to '今じゃない', proposals_path(status: 'skipped'),
+    <%= link_to '保留中', proposals_path(status: 'skipped'),
         class: "filter-btn #{'active' if @status_filter == 'skipped'}" %>
   </div>
 
