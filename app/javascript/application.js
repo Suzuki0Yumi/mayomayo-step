@@ -55,8 +55,3 @@ const initStepForm = () => {
 document.addEventListener("DOMContentLoaded", initStepForm);
 document.addEventListener("turbo:load", initStepForm);
 
-// ④ デモ機能の読み込み
-import "./lp_demo"
-
-// ⑤ ヘッダーメニューの読み込み
-import "./header"
