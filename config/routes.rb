@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
  end
 
-  resources :proposals, only: [:index, :show, :destroy] do
+  resources :proposals, only: [:new, :index, :show, :destroy] do
     member do
       patch :accepted
       patch :completed

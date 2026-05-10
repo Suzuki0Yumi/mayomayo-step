@@ -28,6 +28,10 @@ class ProposalsController < ApplicationController
       redirect_to proposals_path, alert: '更新に失敗しました'
     end
 
+    def new
+      @proposal = Proposal.new
+    end
+
     def show
     end
 
