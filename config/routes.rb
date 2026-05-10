@@ -25,10 +25,8 @@ Rails.application.routes.draw do
 
   resources :proposals, only: [:index, :show, :destroy] do
     member do
-      patch :pending
       patch :accepted
       patch :completed
-      patch :skipped
     end
    end
 

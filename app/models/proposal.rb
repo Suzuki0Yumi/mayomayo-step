@@ -7,7 +7,7 @@ class Proposal < ApplicationRecord
   validates :reason, presence: true
   validates :action, presence: true
 
-  enum status: { pending: 0, accepted: 1, completed: 2, skipped: 3 }
+  enum status: { accepted: 0, completed: 1 }
   
   enum feeling: { 
     light_interest: 0, 
