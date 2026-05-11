@@ -29,7 +29,7 @@ class StepsController < ApplicationController
         empathy: result[:empathy],
         reason: result[:reason],
         action: result[:action],
-        status: :pending
+        status: :accepted
       )
 
       if @proposal.save
