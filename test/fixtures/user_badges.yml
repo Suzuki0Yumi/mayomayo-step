@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  badge: one
+  achieved_at: 2026-05-11 06:13:52
+
+two:
+  user: two
+  badge: two
+  achieved_at: 2026-05-11 06:13:52
