@@ -1,9 +1,28 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# バッジの初期データを作成
+puts 'バッジデータを作成中...'
+
+Badge.find_or_create_by!(badge_type: :first_proposal) do |badge|
+  badge.name = '最初の一歩'
+  badge.description = '初めての提案達成おめでとう！'
+  badge.image_path = 'badges/first_proposal.png'
+end
+
+Badge.find_or_create_by!(badge_type: :three_proposals) do |badge|
+  badge.name = '3回の提案'
+  badge.description = '3回の提案を達成おめでとう！'
+  badge.image_path = 'badges/three_proposals.png'
+end
+
+Badge.find_or_create_by!(badge_type: :ten_proposals) do |badge|
+  badge.name = '10回の提案'
+  badge.description = '10回の提案を達成おめでとう！'
+  badge.image_path = 'badges/ten_proposals.png'
+end
+
+Badge.find_or_create_by!(badge_type: :thirty_proposals) do |badge|
+  badge.name = '30回の提案'
+  badge.description = '30回の提案を達成おめでとう！'
+  badge.image_path = 'badges/thirty_proposals.png'
+end
+
+puts "#{Badge.count}件のバッジを作成しました"

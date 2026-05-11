@@ -6,19 +6,24 @@ class Badge < ApplicationRecord
   validates :badge_type, presence: true
   
   enum badge_type: {
-    first_proposal: 'first_proposal',
-    three_proposals: 'three_proposals',
-    ten_proposals: 'ten_proposals',
-    thirty_proposals: 'thirty_proposals',
-  }, validate: true
+    first_proposal: 0,
+    three_proposals: 10,
+    ten_proposals: 20,
+    thirty_proposals: 30
+  }
 
   scope :for_count, ->(count){ 
     case count
-    when 1 then where(badge_type: :first_proposal)
-    when 3 then where(badge_type: :three_proposals)
-    when 10 then where(badge_type: :ten_proposals)
-    when 30 then where(badge_type: :thirty_proposals)
-    else none
+    when 1  
+      where(badge_type: :first_proposal)
+    when 3 
+      where(badge_type: :three_proposals)
+    when 10  
+      where(badge_type: :ten_proposals)
+    when 30
+      where(badge_type: :thirty_proposals)
+    else
+      none
     end
   }
  
