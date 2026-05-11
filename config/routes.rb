@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'badges/index'
   get 'pages/terms'
   get 'pages/privacy'
   get 'static_pages/top'
@@ -30,4 +31,5 @@ Rails.application.routes.draw do
     end
    end
 
+  resources :badges, only: [:index]
 end
