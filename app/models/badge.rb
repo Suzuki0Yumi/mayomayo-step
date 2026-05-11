@@ -6,10 +6,10 @@ class Badge < ApplicationRecord
   validates :badge_type, presence: true
   
   enum badge_type: {
-    first_proposal: 0,
-    three_proposals: 10,
-    ten_proposals: 20,
-    thirty_proposals: 30
+    first_proposal: 'first_proposal',
+    three_proposals: 'three_proposals',
+    ten_proposals: 'ten_proposals',
+    thirty_proposals: 'thirty_proposals'
   }
 
   scope :for_count, ->(count){ 
