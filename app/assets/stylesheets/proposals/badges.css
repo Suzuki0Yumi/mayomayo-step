@@ -1,13 +1,13 @@
 /* app/assets/stylesheets/badges.css */
 
 .badges-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
 }
 
 .badges-title {
-  color: #555;
+  color: #6b5b4f;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-align: center;
@@ -32,14 +32,22 @@
 }
 
 .badge-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ffffff, #fffaf7);
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(244, 162, 97, 0.15);
   padding: 1.5rem;
+  transition: transform 0.3s ease;
+  border: 1px solid #f3d5b5;
+  animation: fadeUp 0.5s ease both;
+}
+
+.badge-card:hover {
+  transform: translateY(-8px);
 }
 
 .badge-card-disabled {
   opacity: 0.5;
+  filter: grayscale(60%);
 }
 
 .badge-image-container {
@@ -51,6 +59,11 @@
 .badge-image {
   width: 6rem;
   height: 6rem;
+  transition: transform 0.3s ease;
+}
+
+.badge-card:hover .badge-image {
+  transform: rotate(-2deg) scale(1.1);
 }
 
 .badge-name {
@@ -61,7 +74,7 @@
 }
 
 .badge-description {
-  color: #6b7280;
+  color: #6b5b4f;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -79,11 +92,23 @@
 }
 
 .badge-status-earned {
-  background-color: #d1fae5;
+  background: linear-gradient(135deg, #a7f3d0, #d1fae5);
   color: #065f46;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
 }
 
 .badge-status-not-earned {
   background-color: #f3f4f6;
   color: #6b7280;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
