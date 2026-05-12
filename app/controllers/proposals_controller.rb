@@ -23,10 +23,16 @@ class ProposalsController < ApplicationController
 
     def completed
       @proposal.completed!
-      BadgeAwardService.new(current_user).award_badges
-      redirect_to proposals_path, notice: 'やったね！🎉'
-    rescue ActiveRecord::RecordInvalid
-      redirect_to proposals_path, alert: '更新に失敗しました'
+      newly_awarded_badges = BadgeAwardService.new(current_user).award_badges
+      
+      if newly_awarded_badges.any?
+        flash[:badge_earned] = newly_awarded_badges.first
+        redirect_to proposals_path, notice: "やったね！🎉「#{newly_awarded_badges.first.name}」バッジを獲得しました！"
+      else
+        redirect_to proposals_path, notice: 'やったね！🎉'
+      end
+      rescue ActiveRecord::RecordInvalid
+        redirect_to proposals_path, alert: '更新に失敗しました'
     end
 
     def new
