@@ -4,7 +4,7 @@ puts 'バッジデータを作成中...'
 Badge.find_or_create_by!(name: '最初の一歩') do |badge|
   badge.badge_type = :first_proposal
   badge.description = '初めての提案達成おめでとう！'
-  badge.image_path = 'badges/first_proposal.png'
+  badge.image_path = 'badges/first_proposals.png'
 end
 
 Badge.find_or_create_by!(name: '3回の提案') do |badge|
