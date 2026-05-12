@@ -24,6 +24,20 @@
       </div>
     </div>
   </div>
+
+  <div class="remaining-count-area">
+    <% if current_user.remaining_proposals_count > 0 %>
+      <div class ="alert alert-info">
+        <span class="remaining-icon">✨</span>
+          本日あと <strong><%= current_user.remaining_proposals_count %>回</strong>提案を作成できます
+      </div>
+    <% else %>
+      <div class="alert alert-warning">
+        <span class="remaining-icon">⏰</span>
+          本日の提案作成回数の上限に達しました。また明日お試しください！
+      </div>
+    <% end %>
+  </div>
   
   <%= form_with url: generate_step_path, method: :post, scope: :step, class: "main-form" do |f| %>
     

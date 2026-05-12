@@ -482,3 +482,39 @@ label {
   font-size: 15px;
   border-radius: 999px;
 }
+
+.remaining-count-area {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.remaining-count-area .alert {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.remaining-count-area .alert-info {
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  color: #1976d2;
+}
+
+.remaining-count-area .alert-warning {
+  background-color: #fff3e0;
+  border: 1px solid #ffb74d;
+  color: #f57c00;
+}
+
+.remaining-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.remaining-count-area strong {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 5px;
+}
