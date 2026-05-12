@@ -1,0 +1,33 @@
+<div class="badges-container">
+  <h1 class="badges-title">バッジ一覧</h1>
+
+  <div class="badges-grid">
+    <% @all_badges.each do |badge| %>
+      <div class="badge-card <%= 'badge-card-disabled' unless @earned_badge_ids.include?(badge.id) %>">
+        <div class="badge-image-container">
+          <%= image_tag badge.image_path, alt: badge.name, class: "badge-image" %>
+        </div>
+
+        <h2 class="badge-name">
+          <%= badge.name %>
+        </h2>
+
+        <p class="badge-description">
+          <%= badge.description %>
+        </p>
+
+        <div class="badge-status-container">
+          <% if @earned_badge_ids.include?(badge.id) %>
+            <span class="badge-status badge-status-earned">
+              獲得済み
+            </span>
+          <% else %>
+            <span class="badge-status badge-status-not-earned">
+              未獲得
+            </span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<% if flash.any? %>
+     <div class="flash-messages">
+       <% flash.each do |type, message| %>
+         <% unless type == 'badge_earned' %>
+           <div class="flash-message flash-<%= type %>">
+             <%= message %>
+           </div>
+          <% end %>
+       <% end %>
+     </div>
+   <% end %>
+   
