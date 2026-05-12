@@ -550,3 +550,15 @@
     display: none;
   }
 }
+
+.lp-mini-note {
+  margin: 24px auto 0;
+  padding: 10px 16px;
+  max-width: 420px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  background-color: #f8fafc;
+  border-radius: 999px;
+  line-height: 1.5;
+}
