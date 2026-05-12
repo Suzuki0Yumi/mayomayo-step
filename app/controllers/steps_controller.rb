@@ -1,8 +1,10 @@
 class StepsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_daily_limit, only:[:generate]
 
   def new
     @step = Step.new
+    @remaining_count = current_user.remaining_proposals_count
   end
 
   def generate
@@ -45,6 +47,13 @@ class StepsController < ApplicationController
   end
 
   private
+
+  def check_daily_limit
+    return unless current_user.reached_daily_limit?
+
+    flash[:alert] = "本日の提案作成回数の上限(#{User::DAILY_PROPOSAL_LIMIT}回)に達しました。また明日お試しください！"
+    redirect_to new_step_path
+  end
 
   def step_params
     params.require(:step).permit(:goal, :feeling, :time_available)
