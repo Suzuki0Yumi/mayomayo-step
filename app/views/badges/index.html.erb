@@ -5,7 +5,7 @@
     <% @all_badges.each do |badge| %>
       <div class="badge-card <%= 'badge-card-disabled' unless @earned_badge_ids.include?(badge.id) %>">
         <div class="badge-image-container">
-          <%= image_tag badge.image_path, alt: badge.name, class: "badge-image" %>
+          <%= image_tag asset_path(badge.image_path), alt: badge.name, class: "badge-image" %>
         </div>
 
         <h2 class="badge-name">
