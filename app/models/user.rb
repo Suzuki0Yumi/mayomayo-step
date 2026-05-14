@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def remaining_proposals_count
-    DAILY_PROPOSAL_LIMIT - today_proposals_count
+    [DAILY_PROPOSAL_LIMIT - today_proposals_count, 0].max
   end
 
   def reached_daily_limit?
