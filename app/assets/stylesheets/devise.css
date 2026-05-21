@@ -349,3 +349,46 @@ CSS 完全版
   color: #c1440e;
   text-decoration: underline;
 }
+
+/* OAuth ログインボタン */
+.oauth-links {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #f3d5b5;
+  text-align: center;
+}
+
+.oauth-links form {
+  margin-bottom: 10px;
+}
+
+/* Google ログインボタン */
+.btn-google {
+  background: #fff;
+  color: #757575;
+  padding: 12px 32px;
+  border: 1.5px solid #dadce0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-google:hover {
+  background: #f8f9fa;
+  border-color: #c6c6c6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Google アイコン（SVG用） */
+.google-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
