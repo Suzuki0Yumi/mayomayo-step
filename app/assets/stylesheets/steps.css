@@ -111,12 +111,24 @@ body {
   text-align: center; 
   }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #555;
+.form-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  color: #5a3e2b;
 }
+
+.form-label-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
 
 .status-buttons {
   display: grid;

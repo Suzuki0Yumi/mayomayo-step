@@ -216,6 +216,13 @@
     gap: 10px;
   }
 
+.lp-demo-header-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
   .lp-demo-header-icon { font-size: 22px; }
 
   .lp-demo-header-text {
