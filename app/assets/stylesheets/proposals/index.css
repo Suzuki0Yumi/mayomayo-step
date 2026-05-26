@@ -8,7 +8,7 @@
 /* ヘッダー */
 .header-area {
   position: relative;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -20,13 +20,14 @@
   color: #6b5b4f;
   font-weight: 700;
   letter-spacing: 0.02em;
+  margin-bottom: 4px;
 }
 
 .proposals-mascot {
   position: absolute;
-  right: 0;
-  top: -10px;
-  width: 90px;
+  right: 4px;
+  top: 0px;
+  width: 84px;
   opacity: 0.95;
 }
 
@@ -34,7 +35,8 @@
 .hint {
   font-size: 13px;
   color: #777;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  margin-top: 0px;
 }
 
 /* 今日のピック */
@@ -134,14 +136,22 @@
 }
 
 .card-main {
-  flex: 1;
-  min-width: 0;
+  position: relative;
+  padding-left: 32px;
 }
 
 .card-actions {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+}
+
+.mayo-icon {
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  width: 28px;
+  height: 28px;
 }
 
 /* 行動メイン */

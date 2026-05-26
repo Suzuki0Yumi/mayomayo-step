@@ -37,6 +37,7 @@
       <div class='proposal-card <%= proposal.status %>'>
 
         <div class="card-main">
+          <%= image_tag "mayo-icon.png", class: "mayo-icon" %>
           <p class='action-text'>
             <%= link_to proposal.action, proposal_path(proposal), class: 'action-link ' %>
           </p>
