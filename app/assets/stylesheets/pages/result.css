@@ -1,14 +1,16 @@
 /*result画面*/
 
 .result-card {
-  max-width: 600px;
+  width: 95%;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 40px;
+  padding-top: 0px;
   background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 16px rgba(231, 111, 81, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
-  border: 1.5px solid #f3d5b5;
   border-radius: 20px;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  position: relative;
 }
 
 .proposal-content {
@@ -36,14 +38,6 @@
   box-shadow: none;
 }
 
-.result-header {
-  text-align: center;
-}
-
-.result-header h2 {
-  font-size: 20px;
-  margin-bottom: 16px;
-}
 
 /* やってみるボタンのコンテナ */
 .primary-action {
@@ -57,7 +51,7 @@
   color: white;
   border: none;
   padding: 14px 40px;
-  border-radius: 3px;
+  border-radius: 999px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -138,24 +132,56 @@
   line-height: 1.8;
 }
 
+.action-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 28px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: none;
+}
+
 .empathy-section,
 .action-section,
 .reason-section {
   margin-bottom: 20px;
 }
 
+.empathy-section {
+  opacity: 0.8;
+}
+
 .empathy-section p {
-  color: #555;
-  font-size: 15px;
+  font-size: 14px;
+  color: #777;
 }
 
 .action-section p {
-  color: #333;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.7;
+  font-weight: 700;
+  color: #5a3e2b;
 }
 
 .reason-section p {
   color: #666;
   font-size: 14px;
+}
+
+.mayomayo-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+  text-align: center;
+  margin-bottom: -30px;
+}
+
+.mayo-big {
+  width: 180px;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
+}
+
+.result-container {
+  margin-top: -16px;
 }
