@@ -1,13 +1,13 @@
 <div class="container detail-container">
   
   <div class="back-link-top">
-    <%= link_to '← 戻る', proposals_path %>
+    <%= link_to '← 一覧に戻る', proposals_path %>
   </div>
 
   <div class="detail-card">
     
     <div class="detail-goal-section">
-      <span class="goal-icon">🌱</span>
+      <%= image_tag "mayomayo.png", class: "goal-mayo-icon" %>
       <p class="detail-goal"><%= @proposal.goal %></p>
     </div>
 

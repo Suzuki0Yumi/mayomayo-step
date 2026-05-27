@@ -1,6 +1,6 @@
 <div class="lp-wrap">
   <section class="lp-hero">
-      <span class="lp-hero-badge">🌱 いつかやりたいを、今日の一歩に変えよう</span>
+      <span class="lp-hero-badge">いつかやりたいを、今日の一歩に変えよう</span>
       <%= image_tag "mayomayo.png", class:"lp-hero-mascot"%>
       <h1>
        「何か始めたい」のに動けないとき、<br>
@@ -27,7 +27,9 @@
     <div class="lp-steps">
       <div class="lp-step-card">
         <div class="lp-step-num">1</div>
-        <div class="lp-step-icon">💭</div>
+        <div class="lp-step-icon">
+          <%= image_tag "top/mayomayo-try.png", class: "lp-step-icon-img" %>
+        </div>
         <div class="lp-step-label">やってみたいことを入力</div>
         <div class="lp-step-desc">料理・勉強・ランニングなど、なんでも</div>
       </div>
@@ -36,7 +38,9 @@
 
       <div class="lp-step-card">
         <div class="lp-step-num">2</div>
-        <div class="lp-step-icon">🌡️</div>
+        <div class="lp-step-icon">
+           <%= image_tag "top/mayomayo-feeling.png", class: "lp-step-icon-img" %>
+        </div>
         <div class="lp-step-label">今の気分を選ぶ</div>
         <div class="lp-step-desc">「ちょっとやりたい」「動きたいけど重い」など</div>
       </div>
@@ -45,7 +49,9 @@
 
       <div class="lp-step-card">
         <div class="lp-step-num">3</div>
-        <div class="lp-step-icon">🌱</div>
+        <div class="lp-step-icon">
+           <%= image_tag "top/mayomayo-ok.png", class: "lp-step-icon-img" %>
+        </div>
         <div class="lp-step-label">今日の一歩が決まる！</div>
         <div class="lp-step-desc">今日やることが1つだけ決まります</div>
       </div>
@@ -59,7 +65,7 @@
     <div class="lp-demo-box">
 
       <div class="lp-demo-header">
-        <span class="lp-demo-header-icon">🌱</span>
+        <%= image_tag "top/mayomayo-thinking.png", class: "lp-demo-header-img" %>
         <span class="lp-demo-header-text">まよまよと一緒に今日の一歩を決めよう</span>
       </div>
 
@@ -128,15 +134,15 @@
     </div>
 
     <p class="lp-mini-note">
-      📅提案作成は1日10回まで利用できます。翌日リセットされます。
+      提案作成は1日10回まで利用できます。翌日リセットされます。
     </p>
   </section>
 
   <section class="lp-cta">
-    <h2>いつかやりたいを<br>今日の一歩に変えよう 🌱</h2>
+    <h2>いつかやりたいを<br>今日の一歩に変えよう</h2>
     <p class="lp-cta-sub">メールアドレスだけで、すぐに始められます</p>
     <% if user_signed_in? %>
-      <%= link_to "さっそく一歩を踏み出す →", new_step_path, class: "lp-btn", style: "font-size:15px; padding:14px 32px;" %>
+      <%= link_to "新規登録はこちらから", new_step_path, class: "lp-btn", style: "font-size:15px; padding:14px 32px;" %>
     <% else %>
       <%= link_to "登録して始める", new_user_registration_path, class: "lp-btn", style: "font-size:15px; padding:14px 32px;" %>
     <% end %>

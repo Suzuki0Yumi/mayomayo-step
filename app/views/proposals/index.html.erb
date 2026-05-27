@@ -11,14 +11,14 @@
   <% if @proposals.any? %>
     <% pick = @proposals.first %>
     <div class="today-pick">
-      <p class="pick-label">✨ 今のあなたに合いそう</p>
+      <p class="pick-label">今のあなたに合いそう!</p>
 
       <div class="pick-card">
         <p class="pick-action"><%= pick.action %></p>
         <small class="pick-goal">きっかけ：<%= pick.goal %></small>
 
         <div class="pick-actions">
-          <%= button_to 'やってみる', accepted_proposal_path(pick),
+          <%= button_to '完了したよ', accepted_proposal_path(pick),
               method: :patch, class: 'btn-primary' %>
         </div>
       </div>
@@ -26,7 +26,7 @@
   <% end %>
 
   <div class='status-filters'>
-    <%= link_to '実行中', proposals_path(status: 'accepted'),
+    <%= link_to 'やってみる', proposals_path(status: 'accepted'),
         class: "filter-btn #{'active' if @status_filter == 'accepted'}" %>
     <%= link_to 'できた', proposals_path(status: 'completed'),
         class: "filter-btn #{'active' if @status_filter == 'completed'}" %>
@@ -37,6 +37,7 @@
       <div class='proposal-card <%= proposal.status %>'>
 
         <div class="card-main">
+          <%= image_tag "mayo-icon.png", class: "mayo-icon" %>
           <p class='action-text'>
             <%= link_to proposal.action, proposal_path(proposal), class: 'action-link ' %>
           </p>

@@ -12,10 +12,11 @@
   </div>
 
   <div class="result-card">
+
     <div class="result-header">
-      <h2>🌱 あなたへの提案</h2>
-    </div>
-    
+      <h2>あなたへの提案</h2> 
+     </div>
+
     <div class="proposal-content">
       <div class='empathy-section'>
         <p><%= @proposal.empathy %></p>
@@ -31,11 +32,16 @@
 
     </div>
     
+    <div class="cta-area">
+      <div class="mayomayo-before-action">
+        <%= image_tag "big-mayomayo.png", class: "mayo-big" %>
+      </div>
 
-    <div class="primary-action">
-      <%= button_to '✨やってみる', accepted_proposal_path(@proposal), 
-          method: :patch, 
-          class: 'btn-try' %>
+      <div class="primary-action">
+        <%= button_to 'やってみたい', accepted_proposal_path(@proposal), 
+            method: :patch, 
+            class: 'btn-try' %>
+      </div>
     </div>
 
       <div class='secondary-actions'>
@@ -46,11 +52,11 @@
           <%= hidden_field_tag "is_retry", true %>
           <%= hidden_field_tag "previous_proposal", @proposal.suggestion %>
 
-          <%= submit_tag "再提案する", class: "btn btn-secondary" %>
+          <%= submit_tag "他の提案も見る", class: "btn btn-secondary" %>
        <% end %>
       </div>
 
-       <p class='button-hint'> 別の提案を生成します</p>
+       <p class='button-hint'> 今の気分に合う別案もあるかも</p>
 
     <div class='back-link'> 
       <%= link_to '入力画面に戻る', root_path %>

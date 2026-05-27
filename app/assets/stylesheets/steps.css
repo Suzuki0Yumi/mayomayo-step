@@ -86,6 +86,7 @@ body {
   line-height: 1.6;
   padding: 14px;
   background-image: none;
+  min-height: 120px;
 }
 
 .form-control, textarea {
@@ -104,18 +105,32 @@ body {
   box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.15);
 }
 
-.form-group { margin-bottom: 32px; }
+.form-group { margin-bottom: 40px; }
 
 .form-actions {
   margin-top: 40px;
   text-align: center; 
   }
 
-label {
+.form-label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  margin-top: -2px;
+  font-weight: 700;
+  color: #5a3e2b;
+}
+
+.form-label-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
   display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #555;
+}
+
+textarea::placeholder {
+  color: #c7b8aa;
 }
 
 .status-buttons {

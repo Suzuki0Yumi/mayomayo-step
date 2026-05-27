@@ -13,7 +13,7 @@
             </p>
             <p class="bubble-text">
               「やりたいけど、できないまま」<br>
-              そんなこと、ありませんか？🌱<br>
+              そんなこと、ありませんか？<br>
             </p>
            <p class="how-to-use">
               <strong>ずっと頭の片隅にあること</strong> を
@@ -53,8 +53,13 @@
     
     <div class="form-group goal-group">
       <%= f.label :goal, class: 'form-label' do %>
-         🌱いつかやろうと思ってること
-          <span class="required-badge">必須</span>
+        <span  class="form-label-icon">
+          <%=image_tag "top/mayomayo-leaf.png", class: "form-label-icon-img" %>
+        </span>
+        <span class="form-label-text">
+           やってみたいこと、ひとつだけ教えてね
+        </span>
+        <span class="required-badge">必須</span>
       <% end %>
 
       <%= f.text_area :goal, 
@@ -69,7 +74,12 @@
 
      <div class="form-group">
         <%= f.label :feeling, class: 'form-label' do %>
-          💭今どんな感じ？
+          <span  class="form-label-icon">
+            <%=image_tag "top/mayomayo-leaf2.png", class: "form-label-icon-img" %>
+          </span>
+          <span class="form-label-text">
+            今どんな感じ？
+          </span>
           <span class="required-badge">必須</span>
         <% end %>
         <%= f.hidden_field :feeling, id: "feeling-field" %>
@@ -87,7 +97,12 @@
     
     <div class="form-group">
        <%= f.label :time_available, class: 'form-label' do %>
-         ⌛どれくらいのモチベーション？
+         <span  class="form-label-icon">
+            <%=image_tag "top/mayomayo-leaf3.png", class: "form-label-icon-img" %>
+          </span>
+          <span class="form-label-text">
+            どれくらいのモチベーション？
+          </span>
          <span class="required-badge">任意</span>
        <% end %>
        <%= f.hidden_field :time_available, id: "time-available-field" %>
