@@ -4,8 +4,7 @@
   width: 95%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px;
-  padding-top: 0px;
+  padding: 18px;
   background: white;
   border-radius: 20px;
   border: none;
@@ -15,7 +14,6 @@
 
 .proposal-content {
   background: #fff7f0;
-  border-left: 4px solid #f4a261;
   padding: 20px;
   margin-bottom: 24px;
   line-height: 1.8;
@@ -38,12 +36,25 @@
   box-shadow: none;
 }
 
+.result-header { 
+  text-align: center; 
+  margin-top:10px;
+} 
+
+.result-header h2 { 
+  font-size: 20px; 
+  margin-bottom: 16px; 
+  color: #6b5b4f;
+}
+
 
 /* やってみるボタンのコンテナ */
 .primary-action {
+  position: relative;
+  z-index: 5;
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 6px;
 }
 
 .btn-try {
@@ -55,14 +66,16 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.25s ease;
+  transform-origin: center;
   box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
   min-height: 48px;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-try:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.4);
+  transform: none;
 }
 .btn-try:disabled {
   background: #f0f0f0;
@@ -83,7 +96,7 @@
   border: 2px solid #e76f51;
   color: #e76f51;
   padding: 8px 20px; 
-  border-radius: 3px;
+  border-radius: 999px;
   font-size: 12px; 
   cursor: pointer;
   transition: all 0.2s;
@@ -168,20 +181,76 @@
   font-size: 14px;
 }
 
-.mayomayo-overlay {
-  position: relative;
-  top: 0;
-  left: 0;
-  transform: none;
+.mayomayo-before-action {
   text-align: center;
-  margin-bottom: -30px;
+  margin: 12px 0 -6px;
 }
 
 .mayo-big {
-  width: 180px;
+  width: 140px;
   filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
+  transform: rotate(-3deg);
+  position: relative;
+  z-index: 10;
+  top: 10px;
+  margin-bottom: -24px;
+  transition: transform 0.25s ease;
 }
 
 .result-container {
   margin-top: -16px;
+}
+.result-card:hover .btn-try {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(231, 111, 81, 0.35);
+}
+
+.result-card:hover .mayo-big {
+  transform: translateY(-10px) rotate(-5deg) scale(1.05);
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,0.22));
+}
+
+.mayomayo-before-action {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  margin:0;
+}
+
+.btn-try::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 40%;
+  height: 180%;
+  background: rgba(255,255,255,0.35);
+  transform: rotate(25deg);
+  transition: all 0.6s ease;
+}
+
+.result-card:hover .btn-try::before {
+  left: 130%;
+}
+
+.btn-try:active {
+  transform: scale(0.97);
+}
+
+.cta-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  margin-top: -30px;
+  position: relative;
+}
+
+.mayo-big,
+.btn-try,
+.btn-secondary {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
 }

@@ -6,13 +6,25 @@
 }
 
 .back-link-top {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .back-link-top a {
-  color: #666;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff7f0;
+  color: #7a6253;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.back-link-top a:hover {
+  background: #ffe8d6;
+  transform: translateX(-2px);
 }
 
 .detail-card {
@@ -35,11 +47,6 @@
   margin-bottom: 16px;
 }
 
-.goal-icon {
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
 .detail-goal {
   font-size: 15px;
   font-weight: 600;
@@ -49,9 +56,9 @@
 }
 
 .created-at {
-  font-size: 12px;
-  color: #999;
-  margin-bottom: 24px;
+  font-size: 11px;
+  color: #aaa;
+  margin: 8px 4px 20px;
 }
 
 /* 提案内容ブロック */
@@ -162,6 +169,14 @@ form.button_to {
   text-align: center;
   margin-top: 16px;
 }
+
+.goal-mayo-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 640px) {
   .detail-card {

@@ -11,7 +11,7 @@
   <% if @proposals.any? %>
     <% pick = @proposals.first %>
     <div class="today-pick">
-      <p class="pick-label">✨ 今のあなたに合いそう</p>
+      <p class="pick-label">今のあなたに合いそう!</p>
 
       <div class="pick-card">
         <p class="pick-action"><%= pick.action %></p>
@@ -26,7 +26,7 @@
   <% end %>
 
   <div class='status-filters'>
-    <%= link_to '実行中', proposals_path(status: 'accepted'),
+    <%= link_to 'やってみる', proposals_path(status: 'accepted'),
         class: "filter-btn #{'active' if @status_filter == 'accepted'}" %>
     <%= link_to 'できた', proposals_path(status: 'completed'),
         class: "filter-btn #{'active' if @status_filter == 'completed'}" %>

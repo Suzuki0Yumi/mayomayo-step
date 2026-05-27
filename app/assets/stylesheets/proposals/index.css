@@ -207,7 +207,7 @@ button:focus {
   box-shadow: 0 6px 14px rgba(231, 111, 81, 0.3);
 }
 
-/* 完了ボタン（丸くて気持ちいいやつ） */
+/* 完了ボタン */
 .btn-success {
   background: #e76f51;
   color: white;
@@ -231,7 +231,7 @@ button:focus {
 
 /* 状態 */
 .proposal-card.completed {
-  opacity: 0.55;
+  opacity: 0.75;
 }
 
 .done-label {
