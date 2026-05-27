@@ -34,13 +34,7 @@ class StepsController < ApplicationController
         status: :accepted
       )
 
-      if @proposal.save
         render :result
-      else
-      flash.now[:error] = '提案の保存に失敗しました'
-      render :new, status: :unprocessable_entity
-      end
-
     else
       render :new, status: :unprocessable_entity
     end

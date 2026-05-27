@@ -38,9 +38,17 @@
       </div>
 
       <div class="primary-action">
-        <%= button_to 'やってみたい', accepted_proposal_path(@proposal), 
-            method: :patch, 
-            class: 'btn-try' %>
+        <%= form_with url: proposals_path, method: :post do %>
+          <%= hidden_field_tag "proposal[goal]", @proposal.goal %>
+          <%= hidden_field_tag "proposal[feeling]", @proposal.feeling %>
+          <%= hidden_field_tag "proposal[time_available]", @proposal.time_available %>
+          <%= hidden_field_tag "proposal[suggestion]", @proposal.suggestion %>
+          <%= hidden_field_tag "proposal[empathy]", @proposal.empathy %>
+          <%= hidden_field_tag "proposal[reason]", @proposal.reason %>
+          <%= hidden_field_tag "proposal[action]", @proposal.action %>
+
+          <%= submit_tag "やってみたい", class: 'btn-try' %>
+        <% end %>
       </div>
     </div>
 

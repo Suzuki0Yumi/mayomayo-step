@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_proposal, only: [:show, :accepted, :completed, :destroy]
+    before_action :set_proposal, only: [:show, :completed, :destroy]
 
   def index 
      @status_filter = params[:status] || 'accepted'
@@ -14,11 +14,15 @@ class ProposalsController < ApplicationController
                   end.order(created_at: :desc)
    end
 
-    def accepted
-      @proposal.accepted!
-      redirect_to proposals_path, notice: '提案を「実行中」に追加しました！'
-    rescue ActiveRecord::RecordInvalid
-      redirect_to proposals_path, alert: '更新に失敗しました'
+    def create
+      @proposal = current_user.proposals.build(proposal_params)
+      @proposal.status = :accepted
+
+      if @proposal.save
+        redirect_to proposals_path, notice: '提案を保存しました！やってみよう！'
+      else
+        redirect_to root_path, alert: '提案の保存に失敗しました'
+      end
     end
 
     def completed
@@ -51,5 +55,17 @@ class ProposalsController < ApplicationController
 
     def set_proposal
       @proposal = current_user.proposals.find(params[:id])
+    end
+
+    def proposal_params
+      params.require(:proposal).permit(
+        :goal,
+        :feeling,
+        :time_available,
+        :suggestion,
+        :empathy,
+        :reason,
+        :action
+      )
     end
 end

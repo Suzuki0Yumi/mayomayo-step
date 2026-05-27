@@ -193,7 +193,7 @@
   position: relative;
   z-index: 10;
   top: 10px;
-  margin-bottom: -24px;
+  margin-bottom: -18px;
   transition: transform 0.25s ease;
 }
 
