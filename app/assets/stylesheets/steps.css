@@ -533,3 +533,25 @@ textarea::placeholder {
   font-weight: bold;
   margin: 0 5px;
 }
+
+/* 区切り線のスタイル */
+.hamburger-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 12px 0;
+}
+
+/* ハンバーガーメニュー内の主要ナビゲーション（スマホのみ表示） */
+.hamburger-main-nav {
+  display: block;
+}
+
+/* PC サイズ（768px 以上）では非表示 */
+@media (min-width: 768px) {
+  .hamburger-main-nav {
+    display: none;
+  }
+   .hamburger-divider {
+    display: none;
+  }
+}
