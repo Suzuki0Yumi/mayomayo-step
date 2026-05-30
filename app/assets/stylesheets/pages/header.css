@@ -59,10 +59,11 @@
 }
 
 .hamburger-line {
-  width: 30px;
-  height: 3px;
+  width: 22px;
+  height: 2px;
   background-color: white;
-  transition: all 0.3s;
+  border-radius: 999px;
+  transition: all 0.3s ease;
 }
 
 /* ハンバーガーメニューが開いているときのアニメーション */
@@ -82,9 +83,10 @@
 .hamburger-menu {
   position: fixed;
   top: 80px;
-  right: -300px; /* 初期状態は画面外 */
+  right: -300px; 
   width: 250px;
-  background-color: white;
+  border-radius: 20px 0 0 20px;
+  background: rgba(231, 111, 81, 0.5);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease-in-out;
   z-index: 1000;
