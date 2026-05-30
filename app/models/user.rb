@@ -10,16 +10,20 @@ class User < ApplicationRecord
 
   DAILY_PROPOSAL_LIMIT = 10
 
-  def today_proposals_count
-    proposals.where('created_at >= ?', Time.current.beginning_of_day).count
-  end
-
-  def remaining_proposals_count
-    [DAILY_PROPOSAL_LIMIT - today_proposals_count, 0].max
+  def increment_generation_count!
+    reset_count_if_new_day
+    increment!(:daily_generation_count)
+    update_column(:last_generation_date, Date.current)
   end
 
   def reached_daily_limit?
-    today_proposals_count >= DAILY_PROPOSAL_LIMIT
+    reset_count_if_new_day
+    daily_generation_count >= DAILY_PROPOSAL_LIMIT
+  end
+
+  def remaining_proposals_count
+    reset_count_if_new_day
+    [DAILY_PROPOSAL_LIMIT - daily_generation_count, 0].max
   end
 
   def self.from_omniauth(auth)
@@ -28,6 +32,17 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       # user.name = auth.info.name
       # user.image = auth.info.image
+    end
+  end
+
+  private
+
+  def reset_count_if_new_day
+    if last_generation_date != Date.current
+      update_columns(
+        daily_generation_count: 0,
+        last_generation_date: Date.current
+      )
     end
   end
 end

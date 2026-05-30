@@ -33,6 +33,8 @@ class StepsController < ApplicationController
         action: result[:action],
         status: :accepted
       )
+      
+      current_user.increment_generation_count!
 
         render :result
     else
