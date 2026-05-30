@@ -369,8 +369,17 @@ textarea::placeholder {
   .mascot-area {
     flex-direction: column;
     text-align: center;
+    gap: 12px;
   }
   
+  .mascot-img {
+    width: 90px;
+  }
+
+  .mascot-bubble {
+    padding: 16px 12px;
+  }
+
   .mascot-bubble::before,
   .mascot-bubble::after {
     display: none; /* 縦並びでは三角不要 */
