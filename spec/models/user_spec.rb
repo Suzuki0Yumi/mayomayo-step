@@ -87,51 +87,26 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#today_proposals_count' do
-    it '今日の提案数を返す' do
-      user = create(:user)
-      create_list(:proposal, 3, :created_today, user: user)
-
-      expect(user.today_proposals_count).to eq(3)
-    end
-
-    it '昨日の提案は含まれないこと' do
-      user = create(:user)
-      create_list(:proposal, 2, :created_today, user: user)
-      create_list(:proposal, 3, :created_yesterday, user: user)
-
-      expect(user.today_proposals_count).to eq(2)
-    end
-
-    it '他のユーザーの提案は含まれないこと' do
-      user1 = create(:user)
-      user2 = create(:user)
-      create_list(:proposal, 3, :created_today, user: user1)
-      create_list(:proposal, 5, :created_today, user: user2)
-
-      expect(user1.today_proposals_count).to eq(3)
-    end
-  end
 
   describe '#remaining_proposals_count' do
     context '1日あたりの提案制限（10件）' do
       it '残り提案可能数を返すこと' do
         user = create(:user)
-        create_list(:proposal, 3, :created_today, user: user)
+        user.update!(daily_generation_count: 3, last_generation_date: Date.current)
 
         expect(user.remaining_proposals_count).to eq(7)
       end
 
       it '上限に達したら0を返すこと' do
         user = create(:user)
-        create_list(:proposal, 10, :created_today, user:user)
+        user.update!(daily_generation_count: 10, last_generation_date: Date.current)
 
         expect(user.remaining_proposals_count).to eq(0)
       end
 
       it '残り件数は0未満にならないこと' do
         user = create(:user)
-        create_list(:proposal, 11, :created_today, user:user)
+        user.update!(daily_generation_count: 11, last_generation_date: Date.current)
 
         expect(user.remaining_proposals_count).to eq(0)
       end
@@ -142,30 +117,49 @@ RSpec.describe User, type: :model do
     context '1日あたりの提案制限（10件）' do
       it '上限未満ならfalseを返すこと' do
         user = create(:user)
-        create_list(:proposal, 9, :created_today, user: user)
+        user.update!(daily_generation_count: 9, last_generation_date: Date.current)
 
         expect(user.reached_daily_limit?).to be false
       end
 
       it '上限に達したらtrueを返すこと' do
         user = create(:user)
-        create_list(:proposal, 10, :created_today, user: user)
+        user.update!(daily_generation_count: 10, last_generation_date: Date.current)
 
         expect(user.reached_daily_limit?).to be true
       end
 
       it '上限を超えたらtrueを返すこと' do
         user = create(:user)
-        create_list(:proposal, 11, :created_today, user: user)
+        user.update!(daily_generation_count: 11, last_generation_date: Date.current)
 
         expect(user.reached_daily_limit?).to be true
       end
 
-      it '提案が0件ならfalseを返すこと' do
+      it '生成回数が0件ならfalseを返すこと' do
         user = create(:user)
 
         expect(user.reached_daily_limit?).to be false
       end
+    end
+  end
+
+  describe '#increment_generation_count!' do
+    it '生成回数が1増えること' do
+      user = create(:user)
+      
+      expect{user.increment_generation_count!}.to change{user.reload.daily_generation_count}.from(0).to(1)
+    end
+  end
+
+  describe '日付変更時のリセット' do
+    it '前日のカウントをリセットすること' do
+      user = create(:user, daily_generation_count: 10, last_generation_date: Date.yesterday)
+
+      expect(user.remaining_proposals_count).to eq(10)
+      user.reload
+
+      expect(user.daily_generation_count).to eq(0)
     end
   end
 end
