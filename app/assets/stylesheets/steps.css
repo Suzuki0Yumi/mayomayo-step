@@ -9,6 +9,7 @@ body {
   background-color: #FFF3D6;
   padding: 0px;
   color: #333;
+  padding-top: 108px;
 }
 
 .speech-bubble::after {
